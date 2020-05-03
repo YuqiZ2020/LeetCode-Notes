@@ -2,7 +2,7 @@
  * Problem 136: Single Number
  * Prompt: Given a non-empty array of integers, every element 
  * appears twice except for one. Find that single one.
- * Date: 05/03/2020
+ * Date: 05/02/2020
  */
 import java.util.Arrays;
 
@@ -19,3 +19,11 @@ class Solution {
         return 0;
     }
 }
+
+/**
+ * Notes:
+ * Sort the array first and loop through it on the 0, 2, 4... entry
+ * If the number on the even entry is different from the odd entry
+ * then that number is the single number
+ * The other possible case is that the last number is the single number
+ */
