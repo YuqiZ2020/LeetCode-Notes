@@ -1,3 +1,10 @@
+/**
+ * Problem 1346: Check if N and Its Double Exist
+ * Prompt: Given an array arr of integers, 
+ * check if there exists two integers N and M such 
+ * that N is the double of M ( i.e. N = 2 * M).
+ * Date: 05/09/2020
+ */
 class Solution {
     public boolean checkIfExist(int[] arr) {
         Map<Integer, Integer> hm = new HashMap<Integer, Integer>();
