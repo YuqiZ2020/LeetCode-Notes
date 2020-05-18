@@ -39,3 +39,12 @@ class Solution {
         return sb.toString();
     }
 }
+
+/**
+ * Notes: Use stack to record our desired answer and use
+ * a greedy algorithm approach. Once we figured out that
+ * we still have enough letters left to use, we can discard
+ * the letters that are bigger than the current one, and make
+ * sure that the whole stack is in ascending order. 
+ * Need to consider edge case of same numbers. 
+ */
