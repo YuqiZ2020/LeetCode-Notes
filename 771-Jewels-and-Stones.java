@@ -5,7 +5,6 @@
  * You want to know how many of the stones you have are also jewels.
  * The letters in J are guaranteed distinct, and all characters in J and S are letters. 
  * Letters are case sensitive. 
- * Tag: Binary Search
  * Date: 05/02/2020
  */
 
