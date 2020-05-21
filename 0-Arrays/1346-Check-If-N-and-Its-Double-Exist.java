@@ -20,3 +20,9 @@ class Solution {
         return false;
     }
 }
+
+/**
+ * Notes: For each element store that element in a hash map. 
+ * Need to check if the half or the double of that element
+ * exists in the hashmap. 
+ */
