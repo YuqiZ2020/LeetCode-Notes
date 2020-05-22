@@ -16,7 +16,7 @@ class Solution {
 }
 
 /**
- * Notes: This is a undirected graph. 
+ * Notes: This is a directed graph. 
  * Let the ones who trust a person be degres in 
  * and the ones that this person trus be degrees out
  * then the final degree for the town judge should be 

@@ -56,4 +56,6 @@ public:
  * 3. winSt move forward and "return the value to the map"
  * because the window is leaving
  * While loop ends when winEd reaches the end
+ * 
+ * This is actually a strange implementation...
  * */

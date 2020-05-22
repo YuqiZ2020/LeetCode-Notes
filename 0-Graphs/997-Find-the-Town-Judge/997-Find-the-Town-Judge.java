@@ -11,6 +11,8 @@
  * If the town judge exists and can be identified, return the label of 
  * the town judge. Otherwise, return -1.
  */
+import java.util.HashMap;
+import java.util.ArrayList;
 class Solution {
     public int findJudge(int N, int[][] trust) {
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();

@@ -12,6 +12,9 @@
  * the stock spans would be [1, 1, 1, 2, 1, 4, 6].
  * Date: 0519
  */
+
+import java.util.Stack;
+
 class StockSpanner {
 
     public StockSpanner() {

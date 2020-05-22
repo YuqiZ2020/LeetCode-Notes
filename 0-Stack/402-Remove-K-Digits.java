@@ -5,6 +5,8 @@
  * number is the smallest possible.
  * Date: 05/13/2020
  */
+import java.util.Stack;
+
 class Solution {
     public String removeKdigits(String num, int k) {
         Stack<Character> nStack = new Stack<>();

@@ -4,6 +4,8 @@
  * in it and return it's index. If it doesn't exist, return -1.
  * Date: 05/05/2020
  */
+import java.util.Arrays;
+
 class Solution {
     public int firstUniqChar(String s) {
         int[] tempArr = new int[26];

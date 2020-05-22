@@ -42,4 +42,5 @@ public:
 
 /**
  * Notes: Sliding window, same as problem 438. 
+ * Very strange implementation
  * */
