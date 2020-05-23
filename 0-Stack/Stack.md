@@ -4,7 +4,7 @@
 **<font color=#C8A1E6> Greedy; Stack </font>**
 >Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
 #### [解法一](402-Remove-K-Digits/402-Remove-K-Digits.cpp)：每次去除首个比右侧元素大的元素
-_时间复杂度：$O(k*n)$_
+_时间复杂度：O(k*n)_
 
 [参考](https://leetcode.com/problems/remove-k-digits/discuss/88678/Two-algorithms-with-detailed-explaination)
 
@@ -12,7 +12,7 @@ _时间复杂度：$O(k*n)$_
 
 #### [解法二](402-Remove-K-Digits/402-Remove-K-Digits.java)：建栈将元素尽可能地升序排列
 
-_时间复杂度：$O(n)$_
+_时间复杂度：O(n)_
 
 [参考](https://leetcode.com/problems/remove-k-digits/discuss/88708/Straightforward-Java-Solution-Using-Stack)
 
