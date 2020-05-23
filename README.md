@@ -30,7 +30,7 @@ Notes, Codes and Ideas on LeetCode Problems
 ## Stack
 - [x] 402, 901
 
-## String Math
+## String Match
 - [x] 28, 438, 567, 771
 
 ## Recursion
