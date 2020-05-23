@@ -1,12 +1,12 @@
 ## Binary Search
 ### 540. Single Element in a Sorted Array
 ### 136. Single Number
-#### 解法一：顺序查找
+#### [解法一](540-Single-Element-in-a-Sorted-Array/540-Single-Element-in-a-Sorted-Array.java)：顺序查找
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 找第一个和后一位不一样的数字，或是在最后一位落单的数字
 
-#### 解法二：二分查找
+#### [解法二](540-Single-Element-in-a-Sorted-Array/540-Single-Element-in-a-Sorted-Array-Binary-Search.java)：二分查找
 _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 
 1. 当mid为偶数且下一位和mid位数字相同或
