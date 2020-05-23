@@ -130,6 +130,7 @@ class Solution
 **<font color=#C8A1E6> Two Pointers </font>** 
 #### [解法一](1089-Duplicate-Zeros/1089-Duplicate-Zeros.java)：死算
 用循环进行数字移位
+
 #### [解法二](1089-Duplicate-Zeros/1089-Duplicate-Zeros-pointers.cpp)：Two Pointers
 [参考](https://leetcode.com/problems/duplicate-zeros/discuss/312727/C%2B%2BJava-Two-Pointers-Space-O(1))
 

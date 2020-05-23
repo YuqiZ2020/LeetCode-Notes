@@ -2,7 +2,7 @@
 
 ### 7. Reverse Integer
 **<font color=#C8A1E6> Reverse String </font>**
-#### 解法一：一重For 循环反向重组
+#### [解法一](7-Reverse-Integer.java)：一重For 循环反向重组
 ---
 
 ### 451. Sort Characters By Frequency
@@ -11,7 +11,7 @@
 > Given a string, sort it in decreasing 
 order based on the frequency of characters.
 
-#### 解法一：Bucket Sort + Ordered Map
+#### [解法一](451-Sort-Characters-By-Frequency/451-Sort-Characters-By-Frequency.cpp)：Bucket Sort + Ordered Map
 因为仅有256个字符，可以创建一个长度为256的数组来存储每个字符的出现频率。然后使用一个```<int, vector<char>>map```来存储出现频率为i的字符有哪些。最后使用reverse_iterator输出map即可。
 
 ``` Cpp
@@ -39,7 +39,7 @@ public:
     }
 };
 ```
-#### 解法二：Bucket Sort + 循环确定频率
+#### [解法二](451-Sort-Characters-By-Frequency/451-Sort-Characters-By-Frequency-Less-Memory.cpp)：Bucket Sort + 循环确定频率
 可以不使用Map而直接使用二重循环来将频率降序排列的，从而节省Map占用的空间。
 
 ---
@@ -50,7 +50,7 @@ public:
 >Given a positive integer, output its complement number.
 The complement strategy is to flip the bits of its binary representation.
 
-#### 解法一：进制转换 + Reverse
+#### [解法一](476-Number-Complement/476-Number-Complement.cpp)：进制转换 + Reverse
 
 ##### 十进制转二进制
 对于一个十进制正整数
@@ -62,7 +62,7 @@ The complement strategy is to flip the bits of its binary representation.
 ##### 二进制转十进制
 调用C++ stoi 函数，设定进制为2
 
-#### 解法二：二进制减法取反
+#### [解法二](476-Number-Complement/476-Number-Complement.java)：二进制减法取反
 [参考](https://leetcode.com/problems/number-complement/discuss/96018/Java-very-simple-code-and-self-evident-explanation)
 
 一个数的二进制互补数是大于该数的最小11...11减去这个数，

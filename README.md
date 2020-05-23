@@ -12,8 +12,8 @@ Notes, Codes and Ideas on LeetCode Problems
 ## Binary Search
 - [x] 278, 540
 
-## DFS
-- [ ] 230, 733, 993
+## Search
+- [x] 230, 733, 993
 
 ## DP
 - [ ] 53, 1277

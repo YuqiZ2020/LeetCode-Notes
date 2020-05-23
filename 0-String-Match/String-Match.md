@@ -3,7 +3,7 @@
 ### 28. Implement strStr()
 **<font color=#C8A1E6> KMP Match </font>**
 
-#### 解法一：KMP字符串匹配
+#### [解法一](28-Implement-strStr().java)：KMP字符串匹配
 _时间复杂度：O(m + n)； 空间复杂度：O(1)_
 
 [参考1：知乎回答](https://www.zhihu.com/question/21923021/answer/1032665486)
@@ -114,7 +114,7 @@ class Solution {
 ### 567. Permutation in String
 **<font color=#C8A1E6> Sliding Window </font>**
 #### 解法一：两重循环加HashMap暴力搜索，超时
-#### 解法二：很诡异的Sliding Window
+#### [解法二](567-Permutation-in-String/567-Permutation-in-String.cpp)：很诡异的Sliding Window
 首先为需要查找的String制作一个HashMap。
 设置WinSt和WinEd两个指针，分三种情况：
 1. 当WinEd指向的地方在HashMap中有记录且Freq还没有降为0，说明这是一个合法位置，则在HashMap中Freq减一做记录。将WinEd前移。
@@ -162,7 +162,7 @@ public:
     }
 };
 ```
-#### 解法二：真正的Sliding Window
+#### [解法二](567-Permutation-in-String/567-Permutation-in-String-better-SlideWindow.java)：真正的Sliding Window
 [参考1：官方题解](https://leetcode.com/problems/permutation-in-string/solution/)
 
 [参考2：GeeksforGeeks](https://www.geeksforgeeks.org/window-sliding-technique/)
@@ -212,7 +212,7 @@ class Solution {
 
 ---
 
-### 771. Jewels and Stones
+### [771.](771-Jewels-and-Stones.java) Jewels and Stones
 **<font color=#C8A1E6> HashMap </font>**
 
 ---

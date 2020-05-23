@@ -12,14 +12,14 @@
 >
 > You are given trust, an array of pairs trust[i] = [a, b] representing that the person labelled a trusts the person labelled b.If the town judge exists and can be identified, return the label of the town judge. Otherwise, return -1.
 
-#### 解法一：HashMap
+#### [解法一](997-Find-the-Town-Judge/997-Find-the-Town-Judge.java)：HashMap
 用HashMap保存每个人被他人信任的情况，每个人的编号即为一个Key，值使用ArrayList，一旦遇到有人信任这个人就加入ArrayList并在HashMap中更新。遍历所有编号，如果某个人对应的ArrayList长度是N - 1，则这个人有可能是Town Judge。
 
 但对于此人还需检查他是否出现在别人对应的ArrayList中。
 
 ![图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200521205638.png)
 
-#### 解法二：Graph Vertex Degrees
+#### [解法二](997-Find-the-Town-Judge/997-Find-the-Town-Judge-Graph-Degree.java)：Graph Vertex Degrees
 [参考](https://leetcode.com/problems/find-the-town-judge/discuss/242938/JavaC%2B%2BPython-Directed-Graph)
 
 可以把这道题目想象成一张有向图，对于每个人（结点），如果有人（结点）信任他则将两个结点相连，信任者指向被信任者。最终
