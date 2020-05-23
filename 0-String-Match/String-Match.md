@@ -42,7 +42,7 @@ _时间复杂度：O(m + n)； 空间复杂度：O(1)_
 
 若next[i - 1] = k，则说明P[0] ~ P[k] 和 P[i - 1 - k] ~ P[i - 1] 是对于 P[0] ~ P[i - 1] 这个子串来说最长的公共前后缀。
 1. P[i] = P[k]，则next[i] = k + 1
-2. P[i] != P[k]，则应该寻找一个x < k 来**试试 P[x] 是否等于 P[i]**。
+2. P[i] != P[k]，则应该寻找一个x < k 来**试试 P[x ] 是否等于 P[i]**。
    
    ![知乎图解](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200521222423.png)
    

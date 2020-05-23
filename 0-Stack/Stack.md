@@ -1,0 +1,65 @@
+# Stack
+
+### 402. Remove K Digits
+**<font color=#C8A1E6> Greedy; Stack </font>**
+>Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
+#### [解法一](402-Remove-K-Digits/402-Remove-K-Digits.cpp)：每次去除首个比右侧元素大的元素
+_时间复杂度：O(k*n)_
+[参考](https://leetcode.com/problems/remove-k-digits/discuss/88678/Two-algorithms-with-detailed-explaination)
+
+这是一个贪心算法，每次寻找整个数列中第一个“峰值”，即比右侧元素大的值，将其去除。因为我们想要得到的数列是尽可能小的，所以开头的元素要尽可能小，去除了最前面的峰值可以最大化地减小这个数，所以每次操作得到的都是可能得到的最小的数。这个算法时间复杂度较高。
+
+#### [解法二](402-Remove-K-Digits/402-Remove-K-Digits.java)：建栈将元素尽可能地降序排列
+_时间复杂度：O(n)_
+[参考](https://leetcode.com/problems/remove-k-digits/discuss/88708/Straightforward-Java-Solution-Using-Stack)
+
+---
+
+### 901. Online Stock Span
+
+**<font color=#C8A1E6> Stack </font>**
+
+>Write a class StockSpanner which collects daily price quotes for some stock, and returns the span of that stock's price for the current day.
+>
+>The span of the stock's price today is defined as the maximum number of consecutive days (starting  from today and going backwards) for which the price of the stock was less than or equal to today's price.
+>
+>For example, if the price of a stock over the next  7 days were [100, 80, 60, 70, 60, 75, 85], then the stock spans would be [1, 1, 1, 2, 1, 4, 6].
+
+#### [解法一](901-Online-Stock-Span.java)：Stack，合并结果，降序排列
+[参考](https://leetcode.com/problems/online-stock-span/solution/)
+
+这道题应该使用栈结构，因为每个读入的元素都从今日开始向后考虑小于今日价格的最长连续天数。题目表述的不是很清楚，但是从样例结果来看，这个连续天数一定需要包含今日的数量。
+
+例如，读入85，需要向后考虑发现75小于85，其对应权重是4，紧接着的60，70和60也小于85，但是**他们的权重已经包含在75的4里面了**；相反之后的80也小于85但是比75大，因此80的权重也需要加上。所以得到1+4+1=6.
+
+为了避免重复的线性查找，每次读入之后我们只需要保存一些特定的数值和权重加和即可。如果这个数字的权重可以包含在别的数字的权重里，我们没有必要将其保留在数组中。
+
+引入栈的结构之后，每次入栈前先将栈内所有价值比当前元素价值的元素pop出，并将权重加和，形成一个新的<价值，权重>组合元素，放入栈内。如果没有则直接放入栈内，权重为1。这时的权重即为题目所需答案。栈内所有元素都是**降序排列**的，自然保证了没有重复的查找。
+
+![图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200523141444.png)
+
+```Java
+class StockSpanner {
+
+    public StockSpanner() {
+        stk = new Stack<Integer> ();
+        weights = new Stack<Integer> ();
+    }
+    Stack<Integer> stk;
+    Stack<Integer> weights;
+    
+    public int next(int price) {
+        int w = 1;
+        while (!stk.isEmpty() && stk.peek() <= price)
+        {
+            w += weights.pop();
+            stk.pop();
+        }
+        stk.push(price);
+        weights.push(w);
+        return w;
+    }
+}
+```
+
+---

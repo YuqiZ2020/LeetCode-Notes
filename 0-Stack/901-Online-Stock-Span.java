@@ -10,7 +10,7 @@
  * For example, if the price of a stock over the next 
  * 7 days were [100, 80, 60, 70, 60, 75, 85], then 
  * the stock spans would be [1, 1, 1, 2, 1, 4, 6].
- * Date: 0519
+ * Date: 05/19/2020
  */
 
 import java.util.Stack;

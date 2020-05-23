@@ -12,7 +12,7 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ### 1229. Replace Elements with Greatest Element on Right Side
 #### 解法一：从后往前循环遍历
-_时间复杂度：$O(n)$； 空间复杂度：$O(1)$_
+_时间复杂度：O(n)； 空间复杂度：O(1)_
 
 一边记录遇到的最大值一边进行替换，因此仅需单重循环
 
@@ -40,6 +40,8 @@ _时间复杂度：$O(n)$； 空间复杂度：$O(1)$_
 #### 解法二：Two Pointers
 读入pointer碰到val则跳过，否则让写入pointer写入该值。
 
+---
+
 ### 88. Merge Sorted Array
 **<font color=#C8A1E6> Two Pointers </font>** 
 
@@ -48,18 +50,6 @@ _时间复杂度：$O(n)$； 空间复杂度：$O(1)$_
 >**Note:**
 >The number of elements initialized in nums1 and nums2 are m and n respectively.
 You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
->
->**Example:**
->
->Input:
->
->$nums1 = [1,2,3,0,0,0],　m = 3$
->
->$nums2 = [2,5,6],　　　　n = 3$
->
->Output: 
->
->$[1,2,2,3,5,6]$
 
 #### 解法一：死算
 用循环进行数字移位
@@ -99,35 +89,6 @@ class Solution {
 
 ---
 
-### 1089. Duplicate Zeros
-**<font color=#C8A1E6> Two Pointers </font>** 
-#### 解法一：死算
-用循环进行数字移位
-#### 解法二：Two Pointers
-[参考](https://leetcode.com/problems/duplicate-zeros/discuss/312727/C%2B%2BJava-Two-Pointers-Space-O(1))
-
-通过遍历查找数组中0的数量来确定数字需要移动多少位。从后往前进行写入覆盖。
-
-假定数组可以无限长，则写入pointer从数组的理论最长位置（加上复制的0之后）开始，读入pointer从真实长度位置开始，一旦遇到0则让写入pointer多写一位。
-
-写入pointer一直在移动，但是**仅当进入数组真实长度位置后才开始正式写入**。
-``` Cpp
-class Solution {
-public:
-    void duplicateZeros(vector<int>& A) {
-        int n = A.size(), j = n + count(A.begin(), A.end(), 0);
-        for (int i = n - 1; i >= 0; --i) {
-            if (--j < n)
-                A[j] = A[i];
-            if (A[i] == 0 && --j < n)
-                A[j] = 0;
-        }
-    }
-};
-```
-
----
-
 ### 941. Valid Mountain Array
 **<font color=#C8A1E6> Two Pointers </font>** 
 >Given an array A of integers, return true if and only if it is a valid mountain array.
@@ -162,6 +123,36 @@ class Solution
     }
 }
 ```
+
+---
+
+### 1089. Duplicate Zeros
+**<font color=#C8A1E6> Two Pointers </font>** 
+#### 解法一：死算
+用循环进行数字移位
+#### 解法二：Two Pointers
+[参考](https://leetcode.com/problems/duplicate-zeros/discuss/312727/C%2B%2BJava-Two-Pointers-Space-O(1))
+
+通过遍历查找数组中0的数量来确定数字需要移动多少位。从后往前进行写入覆盖。
+
+假定数组可以无限长，则写入pointer从数组的理论最长位置（加上复制的0之后）开始，读入pointer从真实长度位置开始，一旦遇到0则让写入pointer多写一位。
+
+写入pointer一直在移动，但是**仅当进入数组真实长度位置后才开始正式写入**。
+``` Cpp
+class Solution {
+public:
+    void duplicateZeros(vector<int>& A) {
+        int n = A.size(), j = n + count(A.begin(), A.end(), 0);
+        for (int i = n - 1; i >= 0; --i) {
+            if (--j < n)
+                A[j] = A[i];
+            if (A[i] == 0 && --j < n)
+                A[j] = 0;
+        }
+    }
+};
+```
+
 ---
 
 ## 其他
