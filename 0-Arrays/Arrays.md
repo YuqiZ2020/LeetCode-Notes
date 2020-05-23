@@ -11,7 +11,7 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 ---
 
 ### 1229. Replace Elements with Greatest Element on Right Side
-#### 解法一：从后往前循环遍历
+#### [解法一](1299-Replace-Elements-w-Greatest-Element-on-Right-Side.java)：从后往前循环遍历
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 一边记录遇到的最大值一边进行替换，因此仅需单重循环
@@ -22,19 +22,19 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ### 26. Remove Duplicates From Sorted Array
 **<font color=#C8A1E6> Two Pointers; In-place Modification </font>** 
-#### 解法一：Three Pointers
+#### [解法一](26-Remove-Duplicates-from-Sorted-Array/26-Remove-Duplicates-from-Sorted-Array.java)：Three Pointers
 一个pointer从 0 ~ nums.length 进行写入，两个pointer在前方不短寻找一个一个数字区间，当找到新区间或走到终点时让第一个pointer将旧区间的值写入。
 
 ![应用举例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200521174546.png)
 
-#### 解法二：Two Pointers
+#### [解法二](26-Remove-Duplicates-from-Sorted-Array/26-Remove-Duplicates-from-Sorted-Array-2-pointers.java)：Two Pointers
 可将此解法化简为两个pointers，**一个读入一个写入**。因为负责写入的pointer已经存储了数字，读入的pointer可以通过这个存储确定是否已经进入了新的数字区间，从而让第一个pointer继续写入。
 
 ---
 
 ### 27. Remove Element
 **<font color=#C8A1E6> Two Pointers; In-place Modification </font>** 
-#### 解法一：死算
+#### [解法一](27-Remove-Element.java)：死算
 用循环进行数字移位
 
 #### 解法二：Two Pointers
@@ -51,10 +51,10 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 >The number of elements initialized in nums1 and nums2 are m and n respectively.
 You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
 
-#### 解法一：死算
+#### [解法一](88-Merge-Sorted-Arrays/88-Merge-Sorted-Arrays.java)：死算
 用循环进行数字移位
 
-#### 解法二：Three Pointers 
+#### [解法二](88-Merge-Sorted-Arrays/88-Merge-Sorted-Arrays-pointers.java)：Three Pointers 
 [参考](https://leetcode.com/problems/single-element-in-a-sorted-array/discuss/627921/Java-or-C%2B%2B-or-Python3-or-Easy-explanation-or-O(logn)-or-O(1))
 
 2个pointer分别在两个数组的前方读取，一个pointer在num1里进行写入，每次写入时判断，先写小的那个。
@@ -100,7 +100,7 @@ A[i] > A[i+1] > ... > A[A.length - 1]
 >
 >![题目图例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200521180539.png)
 
-#### 解法一：循环遍历
+#### [解法一](941-Valid-Mountain-Array.java)：循环遍历
 直接循环遍历整个数组，记录上升或下降的改变。当且仅当数组先升再降且改变一次升降情况时数组符合条件。比较简单，要判断的情况有点多。
 #### 解法二：Two Pointers
 [参考](https://leetcode.com/problems/valid-mountain-array/discuss/194900/C%2B%2BJavaPython-Climb-Mountain)
@@ -128,9 +128,9 @@ class Solution
 
 ### 1089. Duplicate Zeros
 **<font color=#C8A1E6> Two Pointers </font>** 
-#### 解法一：死算
+#### [解法一](1089-Duplicate-Zeros/1089-Duplicate-Zeros.java)：死算
 用循环进行数字移位
-#### 解法二：Two Pointers
+#### [解法二](1089-Duplicate-Zeros/1089-Duplicate-Zeros-pointers.cpp)：Two Pointers
 [参考](https://leetcode.com/problems/duplicate-zeros/discuss/312727/C%2B%2BJava-Two-Pointers-Space-O(1))
 
 通过遍历查找数组中0的数量来确定数字需要移动多少位。从后往前进行写入覆盖。
@@ -156,9 +156,9 @@ public:
 ---
 
 ## 其他
-### 169. Majority Element
+### [169.](169-Majority-Element/169-Majority-Element-Sort.java) Majority Element
 **<font color=#C8A1E6> Sort; HashMap </font>**
-### 387. First Unique Character in a String
+### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
 **<font color=#C8A1E6> HashMap </font>**
-### 1346. Check if N and its Duplicate Exists
+### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
 **<font color=#C8A1E6> HashMap </font>**
