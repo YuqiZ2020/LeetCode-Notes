@@ -97,6 +97,21 @@ class Solution {
 
 ---
 
+### 905. Sort Array by Parity
+**<font color=#C8A1E6> Two Pointers; Sort </font>** 
+
+#### [解法一](905-Sort-Array-by-Parity.java)：Two Pointers & Swap
+
+两个指针，一个读奇数一个读偶数。奇数指针尽可能地保持在偶数指针之前。奇数指针找到最近的奇数，偶数指针找到最近的在奇数指针之后的偶数。如果偶数指针已经超过了数组边界，则说明不需要再对数组做任何改动，返回当前数组即可。否则将奇数和偶数指针所指的两个数交换，并继续重复以上步骤。
+
+#### [解法二]：Customized Sort
+
+[参考](https://leetcode.com/problems/sort-array-by-parity/solution/)
+
+建立Integer数组，使用Java自带Customized Sort完成排序，最后赋值回A，返回A。
+
+---
+
 ### 941. Valid Mountain Array
 **<font color=#C8A1E6> Two Pointers </font>** 
 >Given an array A of integers, return true if and only if it is a valid mountain array.
@@ -171,5 +186,7 @@ public:
 **<font color=#C8A1E6> HashMap </font>**
 ### [485.](485-Max-Consecutive-Ones.java) Max Consecutive Ones
 **<font color=#C8A1E6> Find Biggest Num </font>**
+### 1295. Find Numbers with Even Number of Digits
+**<font color=#C8A1E6> Easy Counting </font>**
 ### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
 **<font color=#C8A1E6> HashMap </font>**
