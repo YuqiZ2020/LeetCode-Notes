@@ -1,6 +1,8 @@
 ## Binary Search
-### 540. Single Element in a Sorted Array
+
 ### 136. Single Number
+### 540. Single Element in a Sorted Array
+
 #### [解法一](540-Single-Element-in-a-Sorted-Array/540-Single-Element-in-a-Sorted-Array.java)：顺序查找
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
@@ -17,3 +19,11 @@ _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 2. 其他情况
 
     此时target在右侧/当前位置
+
+---
+
+### 278. First Bad Version
+#### [解法一](278-First-Bad-Version.java)：二分查找
+_时间复杂度：O(log(n))； 空间复杂度：O(1)_
+
+二分查找，如果当前找到的点是Bad Version，则往前找，否则往后找（包括当前这个）。最后当左侧pointer大于等于右侧pointer时，返回左侧pointer所指的值。

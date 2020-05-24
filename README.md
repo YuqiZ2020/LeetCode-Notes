@@ -5,12 +5,12 @@ Notes, Codes and Ideas on LeetCode Problems
  ## Arrays 
 - [x] 简单遍历&HashMap: 1, 1229
 
-- [x] Two Pointers: 26, 27, 88, 941, 1089
+- [x] Two Pointers: 26, 27, 88, 283, 941, 1089
 
 - [x] 其他: 169, 387, 1346
 
 ## Binary Search
-- [x] 278, 540
+- [x] 136, 278, 540
 
 ## Search
 - [x] 230, 733, 993

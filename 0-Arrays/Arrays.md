@@ -89,6 +89,14 @@ class Solution {
 
 ---
 
+### 283. Move Zeros
+**<font color=#C8A1E6> Two Pointers </font>** 
+
+#### [解法一](283-Move-Zeros.java)：Two Pointers
+两个Pointers分别进行读和写，当读到非零数则让写入Pointer写入。最后将后面所有数字填补为0即可。
+
+---
+
 ### 941. Valid Mountain Array
 **<font color=#C8A1E6> Two Pointers </font>** 
 >Given an array A of integers, return true if and only if it is a valid mountain array.
@@ -161,5 +169,7 @@ public:
 **<font color=#C8A1E6> Sort; HashMap </font>**
 ### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
 **<font color=#C8A1E6> HashMap </font>**
+### [485.](485-Max-Consecutive-Ones.java) Max Consecutive Ones
+**<font color=#C8A1E6> Find Biggest Num </font>**
 ### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
 **<font color=#C8A1E6> HashMap </font>**
