@@ -2,6 +2,7 @@
  * Problem 485: Max Consecutive Ones
  * Prompt: Given a binary array, find the maximum 
  * number of consecutive 1s in this array.
+ * Date: 05/07/2020
  */
 class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
