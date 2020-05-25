@@ -217,5 +217,13 @@ class Solution {
 
 ---
 
+### 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+**<font color=#C8A1E6> Simple Compare</font>**
+
+---
+
 ### 1456. Maximum Number of Vowels in a Substring of Given Length
 **<font color=#C8A1E6> Sliding Window </font>**
+
+#### [解法一](1456-Maximum-Number-of-Vowels-in-a-Substring-of-Given-Length.java)：Sliding Window
+因为题目要求了子串的长度，可以用Sliding Window记录每次窗口停靠地的元音数量。一开始经过统计之后，之后每次移动只需要根据离开的格子是否是元音以及新加入的格子是否是元音来进行更新。每次移动记录是否得到了一个超过max的元音数量。

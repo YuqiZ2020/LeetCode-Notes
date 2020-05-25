@@ -51,6 +51,15 @@ class Solution {
 
 ---
 
+### 1457. Pseudo-Palindromic Paths in a Binary Tree
+#### 解法一：Recursion
+给定中序遍历的数组，则任意这样一个数组或是表达一个子树的数组都有第一个点为根节点，剩下分成两部分，前一部分组成左子树，后一部分组成右子树。
+
+另外根据二分查找树的性质，左子树中所有结点必定小于根节点数值，右子树中所有结点必定小于
+![图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200524225500.png)
+
+---
+
 ## Search
 
 ## <font color=#7F71D9>DFS: </font>

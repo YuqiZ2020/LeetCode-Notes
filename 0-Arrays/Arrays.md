@@ -174,15 +174,6 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ---
 
-### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
-**<font color=#C8A1E6> HashMap </font>**
-
----
-
-### [414.](414-Third-Maximum-Number.java) Third Manimum Number
-
----
-
 ### 448. Find All Numbers Disappeared in an Array
 **<font color=#C8A1E6> HashMap </font>**
 
@@ -201,26 +192,11 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ---
 
-### [485.](485-Max-Consecutive-Ones.java) Max Consecutive Ones
-**<font color=#C8A1E6> Find Biggest Num </font>**
-
----
-
 ### 1229. Replace Elements with Greatest Element on Right Side
 #### [解法一](1299-Replace-Elements-w-Greatest-Element-on-Right-Side.java)：从后往前循环遍历
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 一边记录遇到的最大值一边进行替换，因此仅需单重循环
-
----
-
-### 1295. Find Numbers with Even Number of Digits
-**<font color=#C8A1E6> Easy Counting </font>**
-
----
-
-### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
-**<font color=#C8A1E6> HashMap </font>**
 
 ---
 
@@ -245,3 +221,17 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ### [1051.](1051-Height-Checker.java) Height Checker
 **<font color=#C8A1E6> Sort </font>**
+
+---
+
+## <font color=#7F71D9>其他：</font>
+### 9. Palindrome Number 
+### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
+**<font color=#C8A1E6> HashMap </font>**
+### [414.](414-Third-Maximum-Number.java) Third Manimum Number
+### [485.](485-Max-Consecutive-Ones.java) Max Consecutive Ones
+**<font color=#C8A1E6> Find Biggest Num </font>**
+### 1295. Find Numbers with Even Number of Digits
+**<font color=#C8A1E6> Easy Counting </font>**
+### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
+**<font color=#C8A1E6> HashMap </font>**
