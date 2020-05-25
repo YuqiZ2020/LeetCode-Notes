@@ -1,22 +1,4 @@
 # Arrays
-## <font color=#7F71D9>简单遍历&HashMap：</font>
-### 1. Two Sums
-**<font color=#C8A1E6> HashMap </font>** 
-#### 解法一：二重循环遍历查找
-_时间复杂度：O(n^2)； 空间复杂度：O(1)_
-
-#### 解法二：HashMap保存Complement值
-_时间复杂度：O(n)； 空间复杂度：O(n)_
-
----
-
-### 1229. Replace Elements with Greatest Element on Right Side
-#### [解法一](1299-Replace-Elements-w-Greatest-Element-on-Right-Side.java)：从后往前循环遍历
-_时间复杂度：O(n)； 空间复杂度：O(1)_
-
-一边记录遇到的最大值一边进行替换，因此仅需单重循环
-
----
 
 ## <font color=#7F71D9>Two Pointers：</font>
 
@@ -181,14 +163,85 @@ public:
 
 ---
 
-## 其他
-### [169.](169-Majority-Element/169-Majority-Element-Sort.java) Majority Element
-**<font color=#C8A1E6> Sort; HashMap </font>**
+## <font color=#7F71D9>简单遍历：</font>
+### 1. Two Sums
+**<font color=#C8A1E6> HashMap </font>** 
+#### 解法一：二重循环遍历查找
+_时间复杂度：O(n^2)； 空间复杂度：O(1)_
+
+#### 解法二：HashMap保存Complement值
+_时间复杂度：O(n)； 空间复杂度：O(n)_
+
+---
+
 ### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
 **<font color=#C8A1E6> HashMap </font>**
+
+---
+
+### [414.](414-Third-Maximum-Number.java) Third Manimum Number
+
+---
+
+### 448. Find All Numbers Disappeared in an Array
+**<font color=#C8A1E6> HashMap </font>**
+
+#### 解法一：用加法加上不可能出现的数做标记
+_时间复杂度：O(n)； 空间复杂度：O(1)_
+
+一道很有意思的题目，对时间和空间复杂度都有要求。因为题目给定了数字的范围，因此可以用特殊的方法来做标记。
+因为每个数都小于等于n，所以每次遇到一个数，就给数组对应这个数下标的数加上n。
+最后再遍历一遍数组，对每个数 div n，如果得到0或者这个数是n就说明这个数没有在数组里出现过。
+
+#### [解法二](448-Find-All-Numbers-Disappeared-in-an-Array-Negative-Flag/448-Find-All-Numbers-Disappeared-in-an-Array-Negative-Flag.java)：用负数做标记
+[参考](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/discuss/92956/Java-accepted-simple-solution)
+_时间复杂度：O(n)； 空间复杂度：O(1)_
+
+遇到一个数就把数组对应这个数 - 1的为下表的数变成负数来做标记，最后遍历，那些没有变成负数的下标 + 1 即为没有出现过的数。
+
+---
+
 ### [485.](485-Max-Consecutive-Ones.java) Max Consecutive Ones
 **<font color=#C8A1E6> Find Biggest Num </font>**
+
+---
+
+### 1229. Replace Elements with Greatest Element on Right Side
+#### [解法一](1299-Replace-Elements-w-Greatest-Element-on-Right-Side.java)：从后往前循环遍历
+_时间复杂度：O(n)； 空间复杂度：O(1)_
+
+一边记录遇到的最大值一边进行替换，因此仅需单重循环
+
+---
+
 ### 1295. Find Numbers with Even Number of Digits
 **<font color=#C8A1E6> Easy Counting </font>**
+
+---
+
 ### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
 **<font color=#C8A1E6> HashMap </font>**
+
+---
+
+## <font color=#7F71D9>Sort：</font>
+
+### [169.](169-Majority-Element/169-Majority-Element-Sort.java) Majority Element
+**<font color=#C8A1E6> Sort; HashMap </font>**
+
+---
+
+### 977. Squares of a Sorted Array
+**<font color=#C8A1E6> Sort; Two Pointers </font>**
+#### 解法一：直接平方后重新排序
+_时间复杂度：O(nlogn)； 空间复杂度：O(1)_
+
+#### 解法二：Two Pointers，存储进新数组
+[参考](https://leetcode.com/problems/squares-of-a-sorted-array/solution/)
+
+_时间复杂度：O(n)； 空间复杂度：O(n)_
+
+---
+
+### [1051.](1051-Height-Checker.java) Height Checker
+**<font color=#C8A1E6> Sort </font>**
