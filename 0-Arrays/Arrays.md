@@ -23,7 +23,7 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 ### 26. Remove Duplicates From Sorted Array
 **<font color=#C8A1E6> Two Pointers; In-place Modification </font>** 
 #### [解法一](26-Remove-Duplicates-from-Sorted-Array/26-Remove-Duplicates-from-Sorted-Array.java)：Three Pointers
-一个pointer从 0 ~ nums.length 进行写入，两个pointer在前方不短寻找一个一个数字区间，当找到新区间或走到终点时让第一个pointer将旧区间的值写入。
+一个pointer从 0 ~ nums.length 进行写入，两个pointer在前方不断寻找一个一个数字区间，当找到新区间或走到终点时让第一个pointer将旧区间的值写入。
 
 ![应用举例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200521174546.png)
 
@@ -38,6 +38,8 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 用循环进行数字移位
 
 #### 解法二：Two Pointers
+_时间复杂度：O(n)； 空间复杂度：O(1)_
+
 读入pointer碰到val则跳过，否则让写入pointer写入该值。
 
 ---

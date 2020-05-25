@@ -7,7 +7,7 @@ Notes, Codes and Ideas on LeetCode Problems
 
 - [x] Two Pointers: 26, 27, 88, 283, 941, 1089
 
-- [x] 其他: 169, 387, 1346
+- [x] 其他: 169, 387, 485, 1295, 1346
 
 ## Binary Search
 - [x] 136, 278, 540
@@ -31,7 +31,9 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 402, 901
 
 ## String Match
-- [x] 28, 438, 567, 771
+- [x] 28, 438, 567, 771, 1456
 
+## Strings 
+- [ ] 7, 451, 476
 ## Recursion
 - [ ] 46
