@@ -18,12 +18,12 @@ Notes, Codes and Ideas on LeetCode Problems
 ## Graphs & Search
 - [x] Graphs: 997
 
-- [ ] Trees: 208, 1008
+- [ ] Trees: 208, 1008, 1457
 
-- [x] Search: 230, 733, 993, 1457
+- [x] Search: 230, 733, 993
 
 ## DP
-- [ ] 53, 918, 1277
+- [ ] 53, 918, 1035, 1277
 
 ## Linked Lists
 - [ ] 2, 328, 707
@@ -38,7 +38,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 28, 438, 567, 771, 1455, 1456
 
 ## Strings 
-- [ ] 7, 451, 476
+- [x] 7, 451, 476
 
 ## Recursion
 - [ ] 46
