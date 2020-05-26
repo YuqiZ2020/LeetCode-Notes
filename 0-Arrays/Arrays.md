@@ -88,7 +88,7 @@ class Solution {
 
 两个指针，一个读奇数一个读偶数。奇数指针尽可能地保持在偶数指针之前。奇数指针找到最近的奇数，偶数指针找到最近的在奇数指针之后的偶数。如果偶数指针已经超过了数组边界，则说明不需要再对数组做任何改动，返回当前数组即可。否则将奇数和偶数指针所指的两个数交换，并继续重复以上步骤。
 
-#### [解法二]：Customized Sort
+#### 解法二：Customized Sort
 
 [参考](https://leetcode.com/problems/sort-array-by-parity/solution/)
 
@@ -129,6 +129,58 @@ class Solution
         return false;
     }
 }
+```
+
+---
+
+### 986. Interval List Intersections
+**<font color=#C8A1E6> Two Pointers </font>** 
+
+>Given two lists of closed intervals, each list of intervals is pairwise disjoint and in sorted order.
+>
+>Return the intersection of these two interval lists.
+>
+>![题目图例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200525143051.png)
+
+#### [解法一](986-Interval-List-Intersections/986-Interval-List-Intersections.cpp)：Two Pointers分类判断
+
+_时间复杂度：O(m + n)； 空间复杂度：O(m + n)_
+
+两个指针分别在A数组和B数组的某个Interval上，首先判断A指针在前还是B指针在前。其次判断两个Interval是否有交集。在前的Interval的末端需要比在后的Interval的前端靠后才能有交集。有交集之后还需要判断靠后的Interval的末端在前还是靠前的Interval末端在前。判断完成之后把对应的交集放进答案集里，然后把靠前的指针后移。
+
+![分类讨论](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200525143744.png)
+
+#### [解法二](986-Interval-List-Intersections/986-Interval-List-Intersections-More-Consise.cpp)：Two Pointers精简判断
+
+_时间复杂度：O(m + n)； 空间复杂度：O(m + n)_
+
+[参考](https://leetcode.com/problems/interval-list-intersections/solution/)
+
+判断的过程可以简化，首先取得两个Interval的前端中靠后的一个，再取得两个Interval后端之中靠前的一个，判断两者是否相交。如果相交前端结果应该小于等于后端结果，而这个前后端就是交集的前后端。
+
+之后把靠前的指针后移。
+
+```Cpp
+class Solution {
+public:
+    vector<vector<int>> intervalIntersection(vector<vector<int>>& A, vector<vector<int>>& B) {
+        int i = 0;
+        int j = 0;
+        vector<vector<int>> ans;
+        while (i < A.size() && j < B.size())
+        {
+            int st = max(A[i][0], B[j][0]);
+            int ed = min(A[i][1], B[j][1]);
+            if (st <= ed)
+                ans.push_back(vector<int> {st, ed});
+            if (A[i][1] <= B[j][1])
+                i++;
+            else
+                j++;
+        }
+        return ans;
+    }
+};
 ```
 
 ---

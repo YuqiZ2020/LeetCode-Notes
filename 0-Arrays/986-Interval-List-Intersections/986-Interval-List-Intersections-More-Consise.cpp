@@ -18,3 +18,11 @@ public:
         return ans;
     }
 };
+
+/**
+ * Notes: For any two given interval, check if they can intersect. 
+ * First get the max of their end index, then get the min of their 
+ * start index. If this start is smaller than or equal to this end, 
+ * then they can intersect. Then move the pointer that is in the front
+ * to the next interval. 
+ * */
