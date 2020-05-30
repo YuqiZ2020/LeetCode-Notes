@@ -10,6 +10,7 @@ class MyLinkedList {
         public Node() { val = 0; }
         public Node(int x) { val = x; }
     }
+    
     private Node head;
     private int size;
     /** Initialize your data structure here. */

@@ -16,9 +16,9 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 136, 278, 540
 
 ## Graphs & Search
-- [x] Graphs: 997
+- [ ] Graphs: 997
 
-- [ ] Trees: 208, 1008, 1457
+- [x] Trees: 208, 1008, 1457
 
 - [x] Search: 230, 733, 993
 
@@ -26,7 +26,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [ ] 53, 918, 1035, 1277
 
 ## Linked Lists
-- [ ] 2, 328, 707
+- [x] 2, 328, 707
 
 ## Math
 - [x] 367, 1232
@@ -41,4 +41,4 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 7, 451, 476
 
 ## Recursion
-- [ ] 46
+- [x] 46

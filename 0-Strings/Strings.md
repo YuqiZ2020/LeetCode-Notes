@@ -2,7 +2,7 @@
 
 ### 7. Reverse Integer
 **<font color=#C8A1E6> Reverse String </font>**
-#### [解法一](7-Reverse-Integer.java)：一重For 循环反向重组
+#### [解法一](7-Reverse-Integer.java)：一重 For 循环反向重组
 ---
 
 ### 451. Sort Characters By Frequency

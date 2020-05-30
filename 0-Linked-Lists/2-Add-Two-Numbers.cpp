@@ -27,7 +27,7 @@ public:
         ListNode * ans = new ListNode();
         ListNode * curAns = ans;
         int extra = 0;
-        while (cur1 || cur2)
+        while (cur1 || cur2 || extra)
         {
             int val1 = 0;
             int val2 = 0;
@@ -43,16 +43,10 @@ public:
             }
             int num = val1 + val2 + extra;
             extra = num / 10;
-            curAns->val = num % 10;
-            if (cur1 || cur2 || extra)
-            {
-                curAns->next = new ListNode();
-                curAns = curAns->next;
-            }
+            curAns->next = new ListNode(num % 10);
+            curAns = curAns->next;
         }
-        if (extra)
-            curAns->val = extra;
-        return ans;
+        return ans->next;
     }
     
 };
