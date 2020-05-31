@@ -276,6 +276,14 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ---
 
+### [1465](1465-Maximum-Area-of-a-Piece-of-Cake-After-Horizontal-and-Vertical-Cuts.java). Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts
+**<font color=#C8A1E6> Sort; Find biggest num </font>**
+
+#### 解法一：排序+找最大值
+首先排序，然后对于横向和纵向数组，分别找最大的间距，包括和0以及和最大边界的间距。最后两个最大值相乘。相乘时注意分别对1000000007取余再对结果取余，否则会溢出。
+
+---
+
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
 ### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
@@ -287,3 +295,4 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 **<font color=#C8A1E6> Easy Counting </font>**
 ### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
 **<font color=#C8A1E6> HashMap </font>**
+### 1464. Maximum Product of Two Elements in an Array
