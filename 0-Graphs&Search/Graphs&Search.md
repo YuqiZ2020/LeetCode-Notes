@@ -1,6 +1,18 @@
 # Graphs & Search
 
 ## <font color=#7F71D9>Graphs: </font>
+
+### 207. Course Schedule
+**<font color=#C8A1E6> Topological Sort </font>**
+
+使用邻接表保存有向图，并使用一个数组保存所有结点的入度。将所有入度为0的点存入栈中，删除入度为0的点（即删除与其他点连接的边），并更新那些点的入度，将新的入度为0的点放入栈中。用一个数组将访问过的点标记。
+
+最后判断是否所有的点都被访问过了。如果有的点没有被访问到则说明有环路，因为这些环路上的点无法达到入度为0，所以无法访问。
+
+---
+
+#### [解法一](207-Course-Schedule.java)：BFS拓扑排序
+
 ### 997. Find the Town Judge
 **<font color=#C8A1E6> HashMap; Vertex Degree </font>**
 >In a town, there are N people labelled from 1 to N. There is a rumor that one of these people is secretly the town judge.
@@ -59,7 +71,7 @@ class Solution {
 >
 >Return true if and only if it is possible to split everyone into two groups in this way.
 
-#### 解法一：BFS+Coloring判断Bipartite Graph
+#### [解法一](886-Possible-Bipartition/886-Possible-Bipartition.java)：BFS+Coloring判断Bipartite Graph
 
 每两个人之间互相讨厌则视作两个点之间有连线，如果可以被分为两个组则说明这个图是Bipartite Graph。判断是否是Bipartite Graph 则可以对一个点进行上色，然后判断邻近的点是否被上色，如果没有则上相反的颜色，并将这个点加入队列进行下一步判断；如果有则需要判定上色是否合法，不合法则说明不是Bipartite Graph。
 
@@ -67,7 +79,7 @@ class Solution {
 
 ![图例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200530091507.png)
 
-#### 解法二：DFS+Coloring判断Bipartite Graph
+#### [解法二](886-Possible-Bipartition/886-Possible-Bipartition-DFS.java)：DFS+Coloring判断Bipartite Graph
 
 也是对图进行上色。对某个点进行上色后，判断其邻近的点，如果有被上色则判断上色是否合法，如果没有被上色则调用DFS对这个点进行上色并判断。
 
@@ -78,8 +90,53 @@ class Solution {
 ### 1462. Course Schedule IV
 **<font color=#C8A1E6> DFS; Floyd-Warshall </font>**
 
-#### 解法一：DFS
+#### [解法一](1462-Course-Schedule-IV/1462-Course-Schedule-IV.java)：DFS
+使用邻接表保存有向图，用DFS从queries的起始点开始进行遍历查找，找到终点则返回True，否则在这个结点的邻接结点中继续进行查找。注意需要引入visited数组来判定结点是否被查找过，否则会死循环。
 
+由于对于每个queries数据都需要进行一遍查找，时间复杂度较高。
+
+#### [解法二](1462-Course-Schedule-IV/1462-Course-Schedule-IV-Floyd-Warshall.java)：Floyd-Warshall
+
+_时间复杂度：O(n^3)； 空间复杂度：O(n^2)_
+
+[参考1：评论区题解](https://leetcode.com/problems/course-schedule-iv/discuss/660509/JavaPython-FloydWarshall-Algorithm-Clean-code-O(n3))
+
+[参考2：Quora](https://www.quora.com/Why-is-the-order-of-the-loops-in-Floyd-Warshall-algorithm-important-to-its-correctness)
+
+用邻接矩阵保存有向图。
+
+Floyd-Warshall 原本是用于构建最小生成树的算法，但是稍作修改也可以用于判断两个点之间是否连通。
+
+对于两个点i, j之间是否联通，我们需要判断
+1. 两点之间是否本身就有路径
+2. 两点经过k为中间点是否能有连通路径
+
+需要注意的是，三重循环在这里的顺序必须要k在最外层。因为进行判断所需要的情况不仅仅是某个i到k是否一开始就有连接&&某个k到j是否一开始连接。对于i到k是否有连接，也需要通过一样的方法进行更新，所以是在k不断循环向前的情况一下一一判断不同的i, j对是否能够找到连接的路线，每次k更新都要重新把所有的i, j配对重新判断。
+
+最后能把所有结点的情况都更新，根据queries直接输出即可。
+
+```Java
+class Solution {
+    public List<Boolean> checkIfPrerequisite(int n, int[][] prerequisites, int[][] queries) 
+    {
+        boolean[][] connected = new boolean[n][n];
+        for (int i = 0; i < prerequisites.length; ++i)
+            connected[prerequisites[i][0]][prerequisites[i][1]] = true;
+        for (int k = 0; k < n; ++k)
+        {
+            for (int i = 0; i < n; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                    connected[i][j] = connected[i][j] || (connected[i][k] && connected[k][j]);
+            }
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (int i = 0; i < queries.length; ++i)
+            ans.add(connected[queries[i][0]][queries[i][1]]);
+        return ans;
+    }
+}
+```
 
 ---
 
