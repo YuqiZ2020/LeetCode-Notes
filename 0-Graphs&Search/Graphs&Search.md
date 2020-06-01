@@ -182,6 +182,14 @@ class TrieNode
 
 ---
 
+### 226. Invert Binary Tree
+**<font color=#C8A1E6> Recursion </font>** 
+
+#### [解法一](226-Invert-Binary-Tree.java)：递归
+对于任意结点，Base Case是当结点为null的时候，返回null。其他情况下先将左右子树调换，再对左子树和右子树分别调用递归函数，将左子树和右子树也进行调换操作。
+
+---
+
 ### 1008. Construct Binary Search Tree from Preorder Traversal
 **<font color=#C8A1E6> BST; Recursion </font>** 
 
