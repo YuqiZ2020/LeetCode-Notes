@@ -259,6 +259,18 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ---
 
+### 973. K Closest Points to Origin
+**<font color=#C8A1E6> Sort; Map </font>**
+
+#### 解法一：Map排序
+将每个点距离远点的距离计算后作为Map的Key，对应的数值是距离为这个Key的所有点的index组成的vector。因为Map是自动排序的，最后只要按顺序直接输出前K个点即可。
+
+#### 解法二：Distance排序后输出
+计算所有的Distance之后排序得到第K位的点的距离。之后再循环遍历所有的点把Distance小于等于这个距离的所有点输出。
+
+
+---
+
 ### 977. Squares of a Sorted Array
 **<font color=#C8A1E6> Sort; Two Pointers </font>**
 #### 解法一：直接平方后重新排序
