@@ -5,13 +5,13 @@
 ### 207. Course Schedule
 **<font color=#C8A1E6> Topological Sort </font>**
 
+#### [解法一](207-Course-Schedule.java)：BFS拓扑排序
+
 使用邻接表保存有向图，并使用一个数组保存所有结点的入度。将所有入度为0的点存入栈中，删除入度为0的点（即删除与其他点连接的边），并更新那些点的入度，将新的入度为0的点放入栈中。用一个数组将访问过的点标记。
 
 最后判断是否所有的点都被访问过了。如果有的点没有被访问到则说明有环路，因为这些环路上的点无法达到入度为0，所以无法访问。
 
 ---
-
-#### [解法一](207-Course-Schedule.java)：BFS拓扑排序
 
 ### 997. Find the Town Judge
 **<font color=#C8A1E6> HashMap; Vertex Degree </font>**
@@ -61,6 +61,8 @@ class Solution {
 }
 ```
 
+---
+
 ### 886. Possible Bipartition
 
 **<font color=#C8A1E6> BFS; DFS </font>**
@@ -73,6 +75,8 @@ class Solution {
 
 #### [解法一](886-Possible-Bipartition/886-Possible-Bipartition.java)：BFS+Coloring判断Bipartite Graph
 
+Bipartite Graph 中的结点可以被分成两个不相交的集合，任意一个集合中的点之间没有边，其中的点只和另一个集合内的点有连接的边。
+
 每两个人之间互相讨厌则视作两个点之间有连线，如果可以被分为两个组则说明这个图是Bipartite Graph。判断是否是Bipartite Graph 则可以对一个点进行上色，然后判断邻近的点是否被上色，如果没有则上相反的颜色，并将这个点加入队列进行下一步判断；如果有则需要判定上色是否合法，不合法则说明不是Bipartite Graph。
 
 最后如果是连通图，则所有点都能被上色，说明可以被分为两组。但如果是非连通图则不能一次性把所有的点都这样上色。因此需要引入一个数组记录结点是否被访问过，出现没有被访问过的结点则需要以这个结点为开头进行BFS访问，直到所有结点都被访问过且都返回True为止。如果任意的搜索返回了False则说明分组失败。
@@ -80,6 +84,8 @@ class Solution {
 ![图例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200530091507.png)
 
 #### [解法二](886-Possible-Bipartition/886-Possible-Bipartition-DFS.java)：DFS+Coloring判断Bipartite Graph
+
+[参考](https://leetcode.com/problems/possible-bipartition/discuss/655414/Java-DFS-Clean-code)
 
 也是对图进行上色。对某个点进行上色后，判断其邻近的点，如果有被上色则判断上色是否合法，如果没有被上色则调用DFS对这个点进行上色并判断。
 
@@ -110,8 +116,12 @@ Floyd-Warshall 原本是用于构建最小生成树的算法，但是稍作修�
 对于两个点i, j之间是否联通，我们需要判断
 1. 两点之间是否本身就有路径
 2. 两点经过k为中间点是否能有连通路径
+   1. i 到 k 之间是联通的
+   2. k 到 j 之间是联通的
 
-需要注意的是，三重循环在这里的顺序必须要k在最外层。因为进行判断所需要的情况不仅仅是某个i到k是否一开始就有连接&&某个k到j是否一开始连接。对于i到k是否有连接，也需要通过一样的方法进行更新，所以是在k不断循环向前的情况一下一一判断不同的i, j对是否能够找到连接的路线，每次k更新都要重新把所有的i, j配对重新判断。
+注意第二个判断的两个子判断本质是对这个问题的一种递归。
+
+需要注意的是，三重循环在这里的顺序**必须要k在最外层**。因为进行判断所需要的情况不仅仅是某个i到k是否一开始就有连接&&某个k到j是否一开始连接。对于i到k是否有连接，也需要通过一样的方法进行更新，所以是在k不断循环向前的情况一下一一判断不同的i, j对是否能够找到连接的路线，每次k更新都要重新把所有的i, j配对重新判断。
 
 最后能把所有结点的情况都更新，根据queries直接输出即可。
 
@@ -142,7 +152,7 @@ class Solution {
 
 ## <font color=#7F71D9>Trees: </font>
 
-### 208. Implement Trie (Prefix Tree)
+### [208](208-Implement-Trie-(Prefix-Tree).java). Implement Trie (Prefix Tree)
 
 [参考](https://leetcode.com/problems/implement-trie-prefix-tree/discuss/58832/AC-JAVA-solution-simple-using-single-array)
 
