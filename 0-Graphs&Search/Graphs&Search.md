@@ -152,6 +152,20 @@ class Solution {
 
 ## <font color=#7F71D9>Trees: </font>
 
+### 110. Balanced Binary Tree
+**<font color=#C8A1E6> AVL; Recursion </font>**
+
+#### [解法一](110-Balanced-Binary-Tree.cpp)：递归
+
+递归判断左子树和右子树的高度。
+1. 左子树或右子树中有不符合AVL条件的（返回-1），则直接返回-1
+2. 左子树右子树高度相差超过1，不符合条件，返回-1
+3. 符合条件，返回当前结点所代表的子树的高度，是左右子树高度的max + 1
+
+最后如果返回-1则说明不是AVL。
+
+---
+
 ### [208](208-Implement-Trie-(Prefix-Tree).java). Implement Trie (Prefix Tree)
 
 [参考](https://leetcode.com/problems/implement-trie-prefix-tree/discuss/58832/AC-JAVA-solution-simple-using-single-array)
@@ -346,7 +360,7 @@ class Solution {
 
 ---
 
-### 993 Cousins in Binary Tree
+### 993. Cousins in Binary Tree
 #### [解法一](993-Cousins-in-Binary-Tree/993-Cousins-in-Binary-Tree.cpp)：分步DFS
 首先对于两个给定的点先分别数深度。数深度的时候，如果找到该点，则返回0，如果已经走到尽头则返回-300（因为题目设定的树的深度肯定小于300）之后返回的值应该是左子树搜索值和又子树搜索值中更大的那个加1，即为该点的深度。
 
@@ -361,4 +375,53 @@ class Solution {
 
 ---
 
+### 1466. Reorder Routes to Make All Paths Lead to the City Zero
 
+#### [解法一](1466-Reorder-Routes-to-Make-All-Paths-Lead-to-the-City-Zero.java)：DFS
+
+[参考](https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/discuss/661672/C%2B%2BJava-Track-Direction)
+
+一开始没想出来，尤其说是Minimal change容易想偏掉。其实因为给定了条件每两个点之前都只有一条确定的路线，所以一旦遇到一条背离0点的路线，必须要进行翻转。所以只需要从0点开始搜索，遇到远离这个点的就将答案加一，然后进入这个点进行继续搜索，因为这个点可以直接到达0，所以远离这个点的路径都需要做反转，然后继续搜索。
+
+使用邻接表存储路线的过程中，每次存储将相反的路线用负数表示存入图中，因此在搜索的时候如果遇到路线是负数且接下来那个点没有被搜索过，就需要记录并进入那个点进行继续搜素。
+
+```Java
+class Solution {
+    public int minReorder(int n, int[][] connections) 
+    {
+        List<Integer>[] adjList = new ArrayList[n];
+        for (int i = 0; i < n; ++i)
+            adjList[i] = new ArrayList<Integer>();
+        for (int i = 0; i < connections.length; ++i)
+        {
+            adjList[connections[i][1]].add(connections[i][0]);
+            adjList[connections[i][0]].add(-connections[i][1]);
+        }
+        boolean[] visited = new boolean[n];
+        int[] ans = new int[1];
+        dfs(0, adjList, visited, ans);
+        return ans[0];
+    }
+    
+    public void dfs(int src, List<Integer>[] adjList, boolean[] visited, int[] count)
+    {
+        visited[src] = true;
+        for (int i : adjList[src])
+        {
+            if (i >= 0)
+            {
+                if (!visited[i])
+                    dfs(i, adjList, visited, count);
+            }
+            else if (!visited[-i])
+            {
+                count[0]++;
+                dfs(-i, adjList, visited, count);
+            }
+        }
+        return;
+    }
+}
+```
+
+---
