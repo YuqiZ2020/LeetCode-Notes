@@ -18,7 +18,7 @@ Notes, Codes and Ideas on LeetCode Problems
 ## Graphs & Search
 - [x] Graphs: 207, 886, 997, 1462
 
-- [x] Trees: 208, 1008, 1457
+- [x] Trees: 208, 226, 1008, 1457
 
 - [x] Search: 230, 733, 993
 
@@ -26,7 +26,9 @@ Notes, Codes and Ideas on LeetCode Problems
 - [ ] 53, 338, 918, 1035, 1277
 
 ## Linked Lists
-- [ ] 2, 328, 707
+- [ ] Two Pointers: 2, 19, 328
+  
+- [x] Others: 206, 237, 707
 
 ## Math
 - [x] 367, 1232
