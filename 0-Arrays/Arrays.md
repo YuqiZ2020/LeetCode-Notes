@@ -41,7 +41,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 #### [解法二](88-Merge-Sorted-Arrays/88-Merge-Sorted-Arrays-pointers.java)：Three Pointers 
 [参考](https://leetcode.com/problems/single-element-in-a-sorted-array/discuss/627921/Java-or-C%2B%2B-or-Python3-or-Easy-explanation-or-O(logn)-or-O(1))
 
-2个pointer分别在两个数组的前方读取，一个pointer在num1里进行写入，每次写入时判断，先写小的那个。
+2个pointer分别在两个数组的前方**读取**，一个pointer在num1里进行**写入**，每次写入时判断，先写小的那个。
 ``` Java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -112,7 +112,7 @@ A[i] > A[i+1] > ... > A[A.length - 1]
 #### 解法二：Two Pointers
 [参考](https://leetcode.com/problems/valid-mountain-array/discuss/194900/C%2B%2BJavaPython-Climb-Mountain)
 
-设置两个pointer，一个从后往前，到下一位数开始变小时停止，一个从前往后，到下一位数开始变小时停止。如果两个指针相遇则说明数组符合条件
+设置两个pointer，一个**从后往前**，到下一位数开始变小时停止，一个**从前往后**，到下一位数开始变小时停止。如果两个指针相遇则说明数组符合条件
 ``` Java
 class Solution
 {
@@ -156,7 +156,7 @@ _时间复杂度：O(m + n)； 空间复杂度：O(m + n)_
 
 [参考](https://leetcode.com/problems/interval-list-intersections/solution/)
 
-判断的过程可以简化，首先取得两个Interval的前端中靠后的一个，再取得两个Interval后端之中靠前的一个，判断两者是否相交。如果相交前端结果应该小于等于后端结果，而这个前后端就是交集的前后端。
+判断的过程可以简化，首先取得两个Interval的**前端中靠后的一个**，再取得两个Interval**后端之中靠前的一个**，判断两者是否相交。如果相交前端结果应该小于等于后端结果，而这个前后端就是交集的前后端。
 
 之后把靠前的指针后移。
 
@@ -193,7 +193,7 @@ public:
 #### [解法二](1089-Duplicate-Zeros/1089-Duplicate-Zeros-pointers.cpp)：Two Pointers
 [参考](https://leetcode.com/problems/duplicate-zeros/discuss/312727/C%2B%2BJava-Two-Pointers-Space-O(1))
 
-通过遍历查找数组中0的数量来确定数字需要移动多少位。从后往前进行写入覆盖。
+通过遍历查找数组中0的数量来确定数字需要移动多少位。**从后往前进行写入覆盖**。
 
 假定数组可以无限长，则写入pointer从数组的理论最长位置（加上复制的0之后）开始，读入pointer从真实长度位置开始，一旦遇到0则让写入pointer多写一位。
 
@@ -215,6 +215,14 @@ public:
 
 ---
 
+### 1471. The k Strongest Values in an Array
+**<font color=#C8A1E6> Two Pointers; Sort </font>** 
+#### 解法一：排序 + Two Pointers处理
+首先将数组排序，找到中位数（注意题目定义的中位数和正常的定义不同），然后从两头开始的数字一定是和中位数差值最大的，让两个Pointers从两头分别开始，像Merge Sorted Arrays一样进行比较，取得前k个差值最大的数字。当差值一样的时候，因为数组已经经过排序，所以肯定是使用从尾端开始的Pointer指向的数字。
+
+
+---
+
 ## <font color=#7F71D9>简单遍历：</font>
 ### 1. Two Sums
 **<font color=#C8A1E6> HashMap </font>** 
@@ -232,7 +240,7 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 #### 解法一：用加法加上不可能出现的数做标记
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
-一道很有意思的题目，对时间和空间复杂度都有要求。因为题目给定了数字的范围，因此可以用特殊的方法来做标记。
+一道很有意思的题目，对时间和空间复杂度都有要求。因为题目给定了数字的范围，因此可以用特殊的方法来做**标记**。
 因为每个数都小于等于n，所以每次遇到一个数，就给数组对应这个数下标的数加上n。
 最后再遍历一遍数组，对每个数 div n，如果得到0或者这个数是n就说明这个数没有在数组里出现过。
 
@@ -244,11 +252,14 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ---
 
-### 1229. Replace Elements with Greatest Element on Right Side
+### 1299. Replace Elements with Greatest Element on Right Side
 #### [解法一](1299-Replace-Elements-w-Greatest-Element-on-Right-Side.java)：从后往前循环遍历
+
+[参考](https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/discuss/463190/Java-Traverse-Backwards)
+
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
-一边记录遇到的最大值一边进行替换，因此仅需单重循环
+一边记录遇到的最大值一边进行替换，因此仅需单重循环。因为每次需要的信息都只包括这个数字之后的数字，且不需要这个数字之前的数字，所以可以从后往前进行处理，也不需要回来再看之前的数据。
 
 ---
 
@@ -287,16 +298,17 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ---
 
-### [1465](1465-Maximum-Area-of-a-Piece-of-Cake-After-Horizontal-and-Vertical-Cuts.java). Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts
+### 1465. Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts
 **<font color=#C8A1E6> Sort; Find biggest num </font>**
 
-#### 解法一：排序+找最大值
-首先排序，然后对于横向和纵向数组，分别找最大的间距，包括和0以及和最大边界的间距。最后两个最大值相乘。相乘时注意分别对1000000007取余再对结果取余，否则会溢出。
+#### [解法一]((1465-Maximum-Area-of-a-Piece-of-Cake-After-Horizontal-and-Vertical-Cuts.java))：排序+找最大值
+首先排序，然后对于横向和纵向数组，分别找最大的间距，包括和0以及和最大边界的间距。最后两个最大值相乘。**相乘时注意分别对1000000007取余再对结果取余**，否则会溢出。
 
 ---
 
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
+### 344. Reverse String
 ### [387.](387-First-Unique-Character-in-a-String.java) First Unique Character in a String
 **<font color=#C8A1E6> HashMap </font>**
 ### [414.](414-Third-Maximum-Number.java) Third Manimum Number
@@ -307,3 +319,4 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 ### [1346.](1346-Check-If-N-and-Its-Double-Exist.java) Check if N and its Duplicate Exists
 **<font color=#C8A1E6> HashMap </font>**
 ### 1464. Maximum Product of Two Elements in an Array
+### 1470. Shuffle the Array

@@ -28,6 +28,18 @@
 
 ---
 
+### 21. Merge Two Sorted Lists
+**<font color=#C8A1E6> Linked Lists; Two Pointers; Recursion </font>**
+
+#### 解法一：Two Pointers
+和[第88题 Merge Two Sorted Arrays](../0-Arrays/88-Merge-Sorted-Arrays/88-Merge-Sorted-Arrays-pointers.java)解法类似，先确定开头的第一个元素是哪个List的小，让这个List作开头，接下来有两个Pointer分别遍历两组元素，比较大小，小的接上并指针后移。
+
+#### 解法二：Three Pointers，简化
+首先可以做一个假的头结点，这样两个List的头结点不需要额外判断。而且也不需要建立新的结点，只需要每次把想要的链表接过来并移动Pointer确定当前位置即可。
+
+#### [解法三](21-Merge-Two-Sorted-Lists/21-Merge-Two-Sorted-Lists-Recursion.cpp)：递归
+当其中一个链表为null的时候直接返回另一个链表。否则对两个链表的头元素进行比较，如果其中一个的元素小则让这个元素的后继元素成为merge（后继元素，另一个列表）最后返回这个结点的指针。
+
 ### 141. Linked List Cycle
 **<font color=#C8A1E6> Linked Lists; Two Pointers</font>**
 
@@ -143,6 +155,22 @@ class Solution {
 ---
 
 ## <font color=#7F71D9>Others: </font>
+
+### 203. Remove Linked List Elements
+**<font color=#C8A1E6> Linked Lists; Recursion</font>**
+
+#### [解法一](203-Remove-Linked-List-Elements/203-Remove-Linked-List-Elements.cpp)：遍历检测
+
+首先，因为通常删除都是需要在前一个结点进行删除，头结点的处理会有所不同，需要单独做一个循环。如果元素数值是要删除的数值，则直接将头结点改到下一个结点。之后判断每个节点的后面那个是否是要删除的值，如果是则执行删除操作。
+
+#### [解法二](203-Remove-Linked-List-Elements/203-Remove-Linked-List-Elements-Recursion.java)：递归
+
+[参考](https://leetcode.com/problems/remove-linked-list-elements/discuss/57306/3-line-recursive-solution)
+
+Base Case是当指针指向null的时候返回null。调用递归对当前结点的下一结点进行处理，对于当前结点，如果当前结点的值是需要删除的数值则直接返回下一个结点的指针，否则还是返回当前结点。
+
+---
+
 ### 206. Reverse Linked Lists
 **<font color=#C8A1E6> Linked Lists; Recursion</font>**
 
@@ -155,6 +183,12 @@ class Solution {
 
 #### [解法二](206-Reverse-Linked-Lists/206-Reverse-Linked-Lists-Iterative.cpp)：递归
 Base case是当前结点为nullptr或者之后没有结点的时候，直接返回当前结点的指针。否则先递归调用将这个结点之后的链表翻转。对于当前结点，我们改变这个结点指向后方的指针，将后方结点的next改变为指向这个结点，这个结点指向nullptr。最后返回的指针是翻转链表的头指针。
+
+#### 解法三：调转指针方向
+
+[参考](https://leetcode.com/problems/reverse-linked-list/discuss/58125/In-place-iterative-and-recursive-Java-solution)
+
+对于每个结点，先保存下一个结点的地址，然后把当前点的next指向前一个结点（事先保存），接下来去下一个结点重复操作，调转所有指针方向。
 
 ---
 

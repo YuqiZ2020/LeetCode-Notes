@@ -106,3 +106,8 @@ class StockSpanner {
 ```
 
 ---
+
+### 1472. Design Browser History
+
+#### 解法一：Two Stacks
+使用两个Stack分别保存历史浏览和前序浏览，当需要往前则把内容往Back Stack里push，需要往后则把内容往Forward Stack里push。同时需要一个String来保存当前浏览页面。
