@@ -265,6 +265,56 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ## <font color=#7F71D9>Sort：</font>
 
+### 75. Sort Colors
+**<font color=#C8A1E6> Sort; Three Pointers </font>** 
+
+>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+>
+>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+#### 解法一：Three Pointers交换排序
+[参考](https://leetcode.com/problems/sort-colors/discuss/26474/Sharing-C%2B%2B-solution-with-Good-Explanation)
+
+设置三个Pointers，low，mid和high，low和mid从头开始，high从尾开始。mid遇到的数字可能有三种情况：
+
+1. 遇到2，则和high交换，这个时候high--，high之后的所有数字都是2（如第二步）
+2. 遇到0，则和low交换，这个时候low++，low之前所有的数字都是0，同时mid++，这是因为我们确定mid交换过来的数字只可能是1，因为**2已经在mid来的路上被处理过了**（如第四步）
+3. 遇到1，直接mid++
+
+这样最后当mid超过high的时候数列就处理完了，注意当mid和high相遇的时候还需要一步操作，因为我们只知道high之后的数字都是2，而不知道当前数字的情况，所以还需要一次判断。
+
+![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200614093810.png)
+
+```Java
+class Solution {
+    public void sortColors(int[] nums) {
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
+        while (mid <= high)
+        {
+            if (nums[mid] == 0)
+            {
+                nums[mid] = nums[low];
+                nums[low] = 0;
+                low++;
+                mid++;
+            }
+            else if (nums[mid] == 2)
+            {
+                nums[mid] = nums[high];
+                nums[high] = 2;
+                high--;
+            }
+            else
+                mid++;
+        }
+    }
+}
+```
+
+---
+
 ### [169.](169-Majority-Element/169-Majority-Element-Sort.java) Majority Element
 **<font color=#C8A1E6> Sort; HashMap </font>**
 
@@ -306,6 +356,9 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ---
 
+### 1481. Least Number of Unique Integers after K Removals
+
+
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
 ### 344. Reverse String
@@ -320,3 +373,4 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 **<font color=#C8A1E6> HashMap </font>**
 ### 1464. Maximum Product of Two Elements in an Array
 ### 1470. Shuffle the Array
+### 5453. Running Sum of 1d Array    

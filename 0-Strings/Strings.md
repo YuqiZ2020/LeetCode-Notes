@@ -5,6 +5,35 @@
 #### [解法一](7-Reverse-Integer.java)：一重 For 循环反向重组
 ---
 
+### 392. Is Subsequence
+**<font color=#C8A1E6> DP; Two Pointers </font>**
+
+#### [解法一](392-Is-Subsequence/392-Is-Subsequence.java)：动态规划
+状态定义：对于dp[i][j]，定义其为字符串s从0到i的子串是否是字符串t从0到j的子串的Subsequence。
+
+初始化：首先判断s的第一个字符是否是t的子串的Subsequence，初始化dp数组第一行；dp数组的第一列除了dp[0][0] 其他必定是0.
+
+状态转移方程式：
+1. 如果s从0到i的子串是t从0到j - 1的子串的Subsequence，那么可以确定s从0到i的子串是t从0到j的子串的Subsequence
+2. 如果不是，但是s从0到i - 1的子串是t从0到j - 1的子串的Subsequence，且s[i] == t[j]，那么也可以确定s从0到i的子串是t从0到j的子串的Subsequence
+
+因此，
+
+```Java
+if (dp[i][j - 1])
+    dp[i][j] = true;
+else if (s.charAt(i) == t.charAt(j))
+    dp[i][j] = dp[i - 1][j - 1];
+```
+
+#### [解法二](392-Is-Subsequence/392-Is-Subsequence-Two-Pointers.java)：Two Pointers
+
+[参考](https://leetcode.com/problems/is-subsequence/discuss/87254/Straight-forward-Java-simple-solution)
+
+s字符串一个Pointer，t字符串一个Pointer，t的Pointer不断向前直到达到尾端。s的pointer只有当在t中找到对应字符才前移。一旦s移到尾端则说明是符合条件的Subsequence，否则不是。
+
+---
+
 ### 451. Sort Characters By Frequency
 **<font color=#C8A1E6> HashMap; Bucket Sort </font>**
 

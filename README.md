@@ -8,7 +8,7 @@ Notes, Codes and Ideas on LeetCode Problems
 
 - [x] 简单遍历: 1, 448, 1299
 
-- [x] Sort: 169, 973, 977, 1051, 1465
+- [x] Sort: 75, 169, 973, 977, 1051, 1465
 
 - [x] 其他：9, 344, 387, 414, 485, 1295, 1346, 1464， 1470
 
@@ -26,15 +26,15 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 496, 1029
 
 ## DP
-- [ ] 53, 338, 918, 1035, 1277
+- [ ] 53, 338, 368, 918, 1035, 1277
 
 ## Linked Lists
-- [ ] Two Pointers: 2, 21, 19, 328
+- [x] Two Pointers: 2, 21, 19, 328
   
 - [x] Others: 206, 237, 707
 
 ## Math
-- [x] 367, 1232
+- [x] 231, 367, 1232
 
 ## Stack
 - [x] 402, 901, 1472
