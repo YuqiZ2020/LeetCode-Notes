@@ -28,6 +28,36 @@ _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 
     此时target在右侧/当前位置
 
+#### 解法三：XOR
+_时间复杂度：O(n)； 空间复杂度：O(1)_
+
+[参考](https://leetcode.com/problems/single-number/discuss/42997/My-O(n)-solution-using-XOR)
+
+将所有的数字一起异或，相同的数字经过异或会变成零，最后留下的就是落单的数字
+
+```Java
+class Solution {
+    public int singleNumber(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++)
+		    ans = ans ^ nums[i];
+	    return ans;
+    }
+}
+```
+
+---
+
+### 275. H-Index-II
+#### [解法一](275-H-Index-II.java)：二分查找
+_时间复杂度：O(log(n))； 空间复杂度：O(1)_
+
+二分查找，比较当前点所代表的paper数量（len - mid，因为需要计算这张加上后面一共有多少paper）是否大于等于这个paper的citation数量。制作一个左开右闭区间。
+
+1. 如果当前点的citation数量和paper数量一样，说明这个就是我们要找的值。例如一个人有四张paper的citation数量都大于等于4，再加paper也不可能有多的citation数量为5的paper。
+2. 如果当前点的citation数量大于paper数量，说明还需要往前面找，就把high挪到当前mid
+3. 否则因为1和2已经排除，说明这个点也不是正确答案，把low挪到mid + 1
+
 ---
 
 ### 278. First Bad Version
