@@ -315,6 +315,11 @@ class Solution {
 
 ---
 
+### [136.](136-Single-Number/136-Single-Number.java) Simgle Number
+**<font color=#C8A1E6> Sort; HashMap </font>**
+
+---
+
 ### [169.](169-Majority-Element/169-Majority-Element-Sort.java) Majority Element
 **<font color=#C8A1E6> Sort; HashMap </font>**
 
@@ -357,7 +362,17 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 ---
 
 ### 1481. Least Number of Unique Integers after K Removals
+**<font color=#C8A1E6> Sort; HashMap; Greedy </font>**
 
+#### [解法一](1481-Least-Number-of-Unique-Integers-after-K-Removals/1481-Least-Number-of-Unique-Integers-after-K-Removals.cpp)：Bucket Sort从较低出现频率的数字开始去除
+
+因为需要最后Unique的Number最少，所以可以从出现频率最低的数字开始一个一个去除，直到不能再去除位置。可以用HashMap来保存每个数字出现的频率，再把所有频率排序（用C++的Map自动排序），然后从频率低到高一个一个减少数字，最后看还剩多少特殊的数字即可。
+
+#### [解法二](1481-Least-Number-of-Unique-Integers-after-K-Removals/1481-Least-Number-of-Unique-Integers-after-K-Removals.java)：直接排序
+
+[参考](https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/discuss/686376/Simple-C%2B%2B-O(N-log-N)-VIDEO-SOL)
+
+直接在记录频率的过程中把某出现频率对应的数字存进一个数组中，将数组排序，最后从低到高进行处理即可。
 
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
@@ -373,4 +388,4 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 **<font color=#C8A1E6> HashMap </font>**
 ### 1464. Maximum Product of Two Elements in an Array
 ### 1470. Shuffle the Array
-### 5453. Running Sum of 1d Array    
+### 1480. Running Sum of 1d Array    
