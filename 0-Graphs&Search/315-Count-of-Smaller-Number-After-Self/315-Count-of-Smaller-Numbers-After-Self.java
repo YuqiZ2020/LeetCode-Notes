@@ -117,7 +117,7 @@ class Solution {
         private void balance() 
         {
             root.fixSizeAndHeight();
-            int balance = root.getBalance();
+            int balance = root.get··Balance();
             if (balance < -1)
             {
                 int balanceR = root.right.getBalance();
@@ -151,3 +151,24 @@ class Solution {
         return ans;
     }
 }
+
+/**
+ * Notes: Use AVL to solve the problem. We start the insertion from 
+ * end to front so each time we can count the numbers that are smaller
+ * than the current number that are already in the tree by using the
+ * property of BST. 
+ * We count the size of left subtree for the current node. If we go 
+ * into the right tree and get back, we need to update the count with 
+ * the count number that got returned, the root frequency and the left 
+ * subtree size. 
+ * Then we would need to balance the tree after the insertion. First
+ * we recalculate the height and size of the current root. Based on
+ * height we see if the tree is balanced, by left height - right height. 
+ * We would also see if the subtrees are balanced if the tree is not
+ * balanced. 
+ * If the left subtree is higher, but the left subtree itself has a higher 
+ * right subtree, then we would be performing left rotation for left subtree
+ * and then right rotation for the whole tree. Other wise we just perform
+ * right rotation for the whole tree. 
+ * Similiar for the other side. 
+ */

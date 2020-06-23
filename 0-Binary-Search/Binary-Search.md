@@ -77,7 +77,7 @@ _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 
 ![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200615110855.png)
 
-得到随机数之后，需要找最前面的一个累积和大于这个数值的数组Index，这个Index对应的数就是被选中的数字。
+得到随机数之后，需要找最前面的一个累积和大于等于这个数值的数组Index，这个Index对应的数就是被选中的数字。使用二分查找，建立左闭右开区间，如果找到的数比随机数要小，那low = mid + 1（因为这个数是错的，不需要再考虑）， 否则将high挪到mid处。有可能是等于（这个时候其实需要选择low，但是挪动high到此处也可以，因为最后high和low会相遇）。
 
 #### [解法二](528-Random-Pick-with-Weight/528-Random-Pick-with-Weight.java)：累积概率 + 顺序查找
 

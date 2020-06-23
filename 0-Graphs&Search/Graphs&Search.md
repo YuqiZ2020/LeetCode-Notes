@@ -13,6 +13,50 @@
 
 ---
 
+### 787. Cheapest Flights Within K Stops
+**<font color=#C8A1E6> DFS </font>** 
+
+#### 解法一：DFS
+因为题目给定了起始点和终止点，虽然有限制步数，但是可以用深度优先搜索去搜索这个点，遍历所有搜索路径并保存最佳，如果最后没有在规定数量之内找到就返回-1。
+
+需要注意因为需要遍历所有路径，所以已经访问过的点之后还需要继续访问。一种处理方式是把当前点的visited情况先改成true，结束当前点邻接点的遍历之后再改成false，防止绕回来，但是这样还是会TLE。
+
+这个时候需要剪枝，去掉那些不可能的路径，就是说如果走这条路加上下一条路的长度已经比当前最佳答案长了，那么这条路就不用走了，这样剪枝可以保证时间不超时。
+
+---
+
+### 886. Possible Bipartition
+
+**<font color=#C8A1E6> BFS; DFS </font>**
+
+>Given a set of N people (numbered 1, 2, ..., N), we would like to split everyone into two groups of any size.Each person may dislike some other people, and they should not go into the same group. 
+>
+>Formally, if dislikes[i] = [a, b], it means it is not allowed to put the people numbered a and b into the same group.
+>
+>Return true if and only if it is possible to split everyone into two groups in this way.
+
+#### [解法一](886-Possible-Bipartition/886-Possible-Bipartition.java)：BFS+Coloring判断Bipartite Graph
+
+Bipartite Graph 中的结点可以被分成两个不相交的集合，任意一个集合中的点之间没有边，其中的点只和另一个集合内的点有连接的边。
+
+每两个人之间互相讨厌则视作两个点之间有连线，如果可以被分为两个组则说明这个图是Bipartite Graph。判断是否是Bipartite Graph 则可以对一个点进行上色，然后判断邻近的点是否被上色，如果没有则上相反的颜色，并将这个点加入队列进行下一步判断；如果有则需要判定上色是否合法，不合法则说明不是Bipartite Graph。
+
+最后如果是连通图，则所有点都能被上色，说明可以被分为两组。但如果是非连通图则不能一次性把所有的点都这样上色。因此需要引入一个数组记录结点是否被访问过，出现没有被访问过的结点则需要以这个结点为开头进行BFS访问，直到所有结点都被访问过且都返回True为止。如果任意的搜索返回了False则说明分组失败。
+
+![图例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200530091507.png)
+
+#### [解法二](886-Possible-Bipartition/886-Possible-Bipartition-DFS.java)：DFS+Coloring判断Bipartite Graph
+
+[参考](https://leetcode.com/problems/possible-bipartition/discuss/655414/Java-DFS-Clean-code)
+
+也是对图进行上色。对某个点进行上色后，判断其邻近的点，如果有被上色则判断上色是否合法，如果没有被上色则调用DFS对这个点进行上色并判断。
+
+同样针对非连通图需要引入一个数组来判定是否所有的点都被访问到。
+
+---
+
+
+
 ### 997. Find the Town Judge
 **<font color=#C8A1E6> HashMap; Vertex Degree </font>**
 >In a town, there are N people labelled from 1 to N. There is a rumor that one of these people is secretly the town judge.
@@ -60,36 +104,6 @@ class Solution {
     }
 }
 ```
-
----
-
-### 886. Possible Bipartition
-
-**<font color=#C8A1E6> BFS; DFS </font>**
-
->Given a set of N people (numbered 1, 2, ..., N), we would like to split everyone into two groups of any size.Each person may dislike some other people, and they should not go into the same group. 
->
->Formally, if dislikes[i] = [a, b], it means it is not allowed to put the people numbered a and b into the same group.
->
->Return true if and only if it is possible to split everyone into two groups in this way.
-
-#### [解法一](886-Possible-Bipartition/886-Possible-Bipartition.java)：BFS+Coloring判断Bipartite Graph
-
-Bipartite Graph 中的结点可以被分成两个不相交的集合，任意一个集合中的点之间没有边，其中的点只和另一个集合内的点有连接的边。
-
-每两个人之间互相讨厌则视作两个点之间有连线，如果可以被分为两个组则说明这个图是Bipartite Graph。判断是否是Bipartite Graph 则可以对一个点进行上色，然后判断邻近的点是否被上色，如果没有则上相反的颜色，并将这个点加入队列进行下一步判断；如果有则需要判定上色是否合法，不合法则说明不是Bipartite Graph。
-
-最后如果是连通图，则所有点都能被上色，说明可以被分为两组。但如果是非连通图则不能一次性把所有的点都这样上色。因此需要引入一个数组记录结点是否被访问过，出现没有被访问过的结点则需要以这个结点为开头进行BFS访问，直到所有结点都被访问过且都返回True为止。如果任意的搜索返回了False则说明分组失败。
-
-![图例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200530091507.png)
-
-#### [解法二](886-Possible-Bipartition/886-Possible-Bipartition-DFS.java)：DFS+Coloring判断Bipartite Graph
-
-[参考](https://leetcode.com/problems/possible-bipartition/discuss/655414/Java-DFS-Clean-code)
-
-也是对图进行上色。对某个点进行上色后，判断其邻近的点，如果有被上色则判断上色是否合法，如果没有被上色则调用DFS对这个点进行上色并判断。
-
-同样针对非连通图需要引入一个数组来判定是否所有的点都被访问到。
 
 ---
 
@@ -214,6 +228,117 @@ class TrieNode
 
 ---
 
+### 315. Count of Smaller Numbers After Self
+**<font color=#C8A1E6> BST; AVL </font>** 
+
+#### [解法一](315-Count-of-Smaller-Number-After-Self/315-Count-of-Smaller-Numbers-After-Self.java)：AVL平衡二分查找树
+
+[参考1:评论区题解](https://leetcode.com/problems/count-of-smaller-numbers-after-self/discuss/291068/7ms-Self-Balancing-BST-AVL-tree-solution)
+[参考2:Youtube视频](https://www.youtube.com/watch?v=jDM6_TnYIqE)
+
+二分查找树可以让我们快速知道树中有多少个结点比当前结点的数值要大/小。所以我们可以从后往前将数字放入二分查找树中，完成放入时因为我们知道结点的位置，所以可以自然知道有多少结点比这个结点小，所以就知道在这个数字之后有多少数字比这个数字小。平衡二分查找树可以降低树的深度，从而节省时间，虽然使用普通二分查找树也是可以的。
+
+首先，在插入的过程中可以用一个counter来记录有多少结点比当前结点小，递归地查找插入位置
+1. 如果当前结点和要插入的结点相等，将结点Frequency加一。Counter需要额外加上左子树的大小。
+2. 如果比当前结点数值小，在左子树Recursively进行插入。
+3. 如果比当前结点数值大，在右子树Recursively进行插入。Counter需要额外加上左子树的大小以及当前结点的Frequency。
+
+接下来需要让树保持平衡。平衡方式为左旋或右旋。总的来说，如果左子树高度过高，则需要右旋，如果右子树高度过高，则需要左旋。但是可能会出现子树需要旋转的方向和当前结点需要旋转的方向不同。所以一共分为四种情况。
+
+1. 当前结点Balance < -1，即右子树高度太高
+   1. 对右子树是否平衡进行计算，如果右子树的Balance > 1，即其左子树高度太高，则先右子树进行右旋，再对整棵树进行左旋
+   2. 否则直接对整棵树进行左旋
+2. 当前结点Balance > 1，即左子树高度太高
+   1. 对左子树是否平衡进行计算，如果左子树的Balance < -1，即其右子树高度太高，则先对左子树进行左旋，再对整棵树进行右旋
+   2. 否则直接对整棵树进行右旋
+
+![情况2 图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200623111528.png)
+
+旋转的时候总是先选出即将做新的根节点的点，然后把这个结点原本的左（右）结点移给原来的根节点做它的右（左）子树，然后再把旧的根节点接给新的根节点。
+
+#### [解法二](315-Count-of-Smaller-Number-After-Self/315-Count-of-Smaller-Numbers-After-Self-BST.cpp)：普通二分查找树
+
+[参考](https://leetcode.com/problems/count-of-smaller-numbers-after-self/discuss/76580/9ms-short-Java-BST-solution-get-answer-when-building-BST)
+
+用普通二分查找树也可以实现，只是不去平衡，可能会导致树的高度过高从而增加时间消耗。每个结点保存当前结点的Freq和左子树的大小。
+
+1. Base Case：如果root是nullptr，则新建Node并返回
+2. Base Case：如果遇到数字一样的结点，则更新Freq，Count要增加leftChildSize
+3. 如果数字比当前结点大，往右子树插入，Count要额外加上leftChildSize和当前结点Freq
+4. 如果数字比当前结点小，往左子树插入，更新左子树大小
+
+```Cpp
+class Solution {
+
+class Node {
+    public:
+    int val;
+    int freq;
+    int leftChildSize;
+    Node* left;
+    Node* right;
+    
+    Node(int num)
+    {
+        val = num;
+        freq = 1;
+        leftChildSize = 0;
+        left = nullptr;
+        right = nullptr;
+    }
+
+};
+public:
+    vector<int> countSmaller(vector<int>& nums) {
+        Node* root = nullptr;
+        vector<int> ans;
+        for (int i = nums.size() - 1; i >= 0; --i)
+        {
+            int counter = 0;
+            root = insert(root, nums[i], &counter);
+            ans.insert(ans.begin(), counter);
+        }
+        return ans;
+    }
+    
+    Node* insert(Node* root, int num, int* count)
+    {
+        if (root == nullptr)
+        {
+            root = new Node(num);
+            *count = 0;
+            return root;
+        }
+        if (num == root->val)
+        {
+            root->freq++;
+            *count = *count + root->leftChildSize;
+        }
+        else if (num < root->val)
+        {
+            root->left = insert(root->left, num, count);
+            root->leftChildSize++;
+        }
+        else if (num > root->val)
+        {
+            root->right = insert(root->right, num, count);
+            *count = *count + root->leftChildSize + root->freq;
+        }
+        return root;
+            
+    }
+};
+```
+
+---
+
+
+### 700. Search in a Binary Search Tree
+**<font color=#C8A1E6> BST; Recursion </font>** 
+
+
+---
+
 ### 1008. Construct Binary Search Tree from Preorder Traversal
 **<font color=#C8A1E6> BST; Recursion </font>** 
 
@@ -306,6 +431,15 @@ public:
 
 ## <font color=#7F71D9>Search: </font>
 
+### 130. Surrounded Regions
+**<font color=#C8A1E6> DFS </font>** 
+
+#### [解法一](130-Surrounded-Regions.java)：DFS反向查找
+
+一开始没有想到因为一直在用DFS考虑如何找到整块被包裹的O区域，但是很难实现，因为要考虑四个方向，且情况比较多。所以简单的方法是先找出不需要做改变的O，然后把剩下的O变成X。
+
+找出不需要做改变的O比较简单，只要从边界开始，如果遇到O就进行DFS搜索，可以先把O变成另一个字母P，查找出所有能从边界能走到的O，他们没有被X完全包裹。接下来把剩下的所有O都变成X，最后把P变回O即可。
+
 ### 230. Kth Smallest Element in a BST
 **<font color=#C8A1E6> DFS </font>** 
 
@@ -359,6 +493,7 @@ class Solution {
 对于每个点，只要这个点的颜色符合要求就对上下左右四个方向进行染色，因为被染色的格子的颜色已经有变化，所以不会出现重复染色的情况。但是要注意如果初始点和要被染色的颜色一样，就不进行操作，否则会死循环。
 
 ---
+
 
 ### 993. Cousins in Binary Tree
 #### [解法一](993-Cousins-in-Binary-Tree/993-Cousins-in-Binary-Tree.cpp)：分步DFS
