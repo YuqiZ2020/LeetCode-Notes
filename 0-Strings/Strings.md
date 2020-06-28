@@ -73,6 +73,24 @@ public:
 
 ---
 
+### 468. Validate IP Address
+**<font color=#C8A1E6> Divide and Conquer </font>**
+
+#### [解法一](468-Validate-IP-Address.java)：分类讨论
+
+首先分两类，IPv4和IPv6，分类方式是数字符串中的'.'和':'，看个数是否确定。
+
+1. IPv4
+   1. 用'.'进行split string
+   2. 对于每个子串，一共四个，检查他们是否符合要求。因为子串中不能有除了数字以外的数，所以可以先转换成整数再转换回字符串，检查和原来的字符串是否相等，其次检查数字是否在0-255之间
+2. IPv6
+   1. 用':'进行Split string
+   2. 对于每个子串，一共八个，检查他们是否符合要求。因为子串只要是16进制数字即可，所以直接转换成数字，检查长度是否符合要求，在长度符合要求的前提下检查是否是非负数。
+
+同时检测```NumberFormatException```，如果有就返回False
+
+---
+
 ### 476. Number Complement
 **<font color=#C8A1E6> Reverse String; Binary Arithmetic </font>**
 

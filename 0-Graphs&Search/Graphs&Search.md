@@ -55,8 +55,6 @@ Bipartite Graph 中的结点可以被分成两个不相交的集合，任意一�
 
 ---
 
-
-
 ### 997. Find the Town Judge
 **<font color=#C8A1E6> HashMap; Vertex Degree </font>**
 >In a town, there are N people labelled from 1 to N. There is a rumor that one of these people is secretly the town judge.
@@ -179,6 +177,12 @@ class Solution {
 最后如果返回-1则说明不是AVL。
 
 ---
+
+### 129. Sum Root to Leaf Numbers
+**<font color=#C8A1E6> DFS </font>**
+
+#### 解法一：DFS
+用DFS遍历整个树，计算每一个从Root到Leaf的数字值并加起来返回。Base case是当一个结点是叶子结点的时候。之所以没有使用null作为Base Case是因为如果这样的话每个数值会被加两遍（叶子节点往左是null往右也是null）。在所有情况下，count = count * 10 + 当前点的值，然后当左子树或右子树存在的时候调用dfs进行递归。
 
 ### [208](208-Implement-Trie-(Prefix-Tree).java). Implement Trie (Prefix Tree)
 
