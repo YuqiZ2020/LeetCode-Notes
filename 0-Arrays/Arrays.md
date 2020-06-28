@@ -81,6 +81,23 @@ class Solution {
 
 ---
 
+### 287. Find the Duplicate Number
+**<font color=#C8A1E6> Two Pointers </font>** 
+
+#### [解法一](287-Find-the-Duplicate-Number.java)：快慢Two Pointers
+
+[参考](https://leetcode.com/problems/find-the-duplicate-number/solution/)
+
+这可以转化成一个Linked List问题，这真的完全想不到。因为题目限制了数组中的数只可能是1-n之间的数，所以每个数字既是数值又可以是index。因此链表每个数字的下一个数字就是这个数字作为index所代表的数。这样数组中的任何重复的数字就会让链表出现环路，因为重复的数字会让Pointer走向重复的道路。
+
+这之后就可以转化成[142.](../0-Linked-Lists/142-Linked-List-Cycle-II.cpp) Linked List Cycle II用快慢两个指针来寻找环路的开头。
+
+#### 解法二：二分查找
+
+[参考](https://leetcode.com/problems/find-the-duplicate-number/discuss/72844/Two-Solutions-(with-explanation)%3A-O(nlog(n))-and-O(n)-time-O(1)-space-without-changing-the-input-array)
+
+感觉这个解法也很妙，二分查找一开始也没想出来能确定到底要找的数字在左边还是在右边。但是可以这样，每次中位数往左边数
+
 ### 905. Sort Array by Parity
 **<font color=#C8A1E6> Two Pointers; Sort </font>** 
 
@@ -220,6 +237,14 @@ public:
 #### 解法一：排序 + Two Pointers处理
 首先将数组排序，找到中位数（注意题目定义的中位数和正常的定义不同），然后从两头开始的数字一定是和中位数差值最大的，让两个Pointers从两头分别开始，像Merge Sorted Arrays一样进行比较，取得前k个差值最大的数字。当差值一样的时候，因为数组已经经过排序，所以肯定是使用从尾端开始的Pointer指向的数字。
 
+---
+
+### 1493. Longest Subarray of 1's After Deleting One Element
+**<font color=#C8A1E6> Sliding Window </font>** 
+
+#### 解法一：压缩所有的1
+
+因为我们需要连续的1的长度，我们可以先把已经连续的1压缩，然后再看最大的值能到多少。
 
 ---
 
@@ -312,11 +337,6 @@ class Solution {
     }
 }
 ```
-
----
-
-### [136.](136-Single-Number/136-Single-Number.java) Simgle Number
-**<font color=#C8A1E6> Sort; HashMap </font>**
 
 ---
 

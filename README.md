@@ -10,15 +10,18 @@ Notes, Codes and Ideas on LeetCode Problems
 
 - [x] Sort: 75, 169, 973, 977, 1051, 1465, 1471, 1481
 
-- [x] 其他：9, 136, 344, 387, 414, 485, 1295, 1346, 1464, 1470, 1480
+- [x] 其他：9, 344, 387, 414, 485, 1295, 1346, 1464, 1470, 1480
+
+## Bit Manipulation
+- [ ] 136, 137, 231
 
 ## Binary Search
 - [x] 35, 136, 275, 278, 528, 540
 
 ## Graphs & Search
-- [x] Graphs: 207, 787, 886, 997, 1462, 1466
+- [ ] Graphs: 207, 787, 886, 997, 1462, 1466
 
-- [x] Trees: 110, 208, 226, 315, 700, 1008, 1457
+- [ ] Trees: 110, 129, 208, 222, 226, 315, 700, 1008, 1457
 
 - [x] Search: 130, 230, 733, 993
 
@@ -26,7 +29,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 496, 1029
 
 ## DP
-- [ ] 53, 72, 174, 338, 368, 392, 918, 1035, 1277
+- [ ] 53, 72, 96, 174, 279, 338, 368, 392, 918, 1035, 1277
 
 ## Linked Lists
 - [x] Two Pointers: 2, 21, 19, 328
@@ -34,7 +37,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] Others: 206, 237, 707
 
 ## Math
-- [x] 60, 231, 367, 1232
+- [x] 60, 367, 1232
 
 ## Stack
 - [x] 402, 901, 1472
@@ -43,7 +46,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 28, 438, 567, 771, 1455, 1456
 
 ## Strings 
-- [x] 7, 451, 476, 1461
+- [ ] 7, 451, 476, 1044, 1461
 
 ## Recursion
 - [x] 46
