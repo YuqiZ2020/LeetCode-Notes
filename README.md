@@ -8,8 +8,6 @@ Notes, Codes and Ideas on LeetCode Problems
 
 - [x] 简单遍历: 1, 448, 1299
 
-- [x] Sort: 75, 169, 973, 977, 1051, 1465, 1471, 1481
-
 - [x] 其他：9, 344, 387, 414, 485, 1295, 1346, 1464, 1470, 1480
 
 ## Bit Manipulation
@@ -38,6 +36,9 @@ Notes, Codes and Ideas on LeetCode Problems
 
 ## Math
 - [x] 60, 367, 1232
+
+## Sort
+- [x] 75, 169, 973, 977, 1051, 1465, 1471, 1481
 
 ## Stack
 - [x] 402, 901, 1472

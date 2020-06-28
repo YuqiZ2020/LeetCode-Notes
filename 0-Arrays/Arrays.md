@@ -96,7 +96,7 @@ class Solution {
 
 [参考](https://leetcode.com/problems/find-the-duplicate-number/discuss/72844/Two-Solutions-(with-explanation)%3A-O(nlog(n))-and-O(n)-time-O(1)-space-without-changing-the-input-array)
 
-感觉这个解法也很妙，二分查找一开始也没想出来能确定到底要找的数字在左边还是在右边。但是可以这样，每次中位数往左边数
+感觉这个解法也很妙，二分查找一开始也没想出来能确定到底要找的数字在左边还是在右边。但是可以这样，每次中位数往左边数，如果有超过一半的数字比当前数字小（或等于当前数字），说明那个重复的数字一定在这半边，否则就在另一半边。
 
 ### 905. Sort Array by Parity
 **<font color=#C8A1E6> Two Pointers; Sort </font>** 
@@ -242,9 +242,21 @@ public:
 ### 1493. Longest Subarray of 1's After Deleting One Element
 **<font color=#C8A1E6> Sliding Window </font>** 
 
-#### 解法一：压缩所有的1
+#### [解法一](1493-Longest-Subarray-of-1's-After-Deleting-One-Element/1493-Longest-Subarray-of-1's-After-Deleting-One-Element.java)：压缩所有的1
 
-因为我们需要连续的1的长度，我们可以先把已经连续的1压缩，然后再看最大的值能到多少。
+因为我们需要连续的1的长度，我们可以先把已经连续的1压缩，然后再看最大的值能到多少。每次取一个sum来对1进行加和，一旦我们遇到一个0就把这个数字放进ArrayList中，并把sum重设成0，注意如果这个时候sum本来就是0，0也会被存放进ArrayList中。结束遍历的时候最后的sum也要放进ArrayList中。
+
+最后我们遍历ArrayList，设置一个长度为2的窗口，比较窗口中数字的和，找到最大的和。这其实就代表了把两组1中的0去掉能达到的最大长度。而且因为我们只能去掉一个0，所以有多个连续的0的时候就不能跳过这些0。
+
+![图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200627214544.png)
+
+#### [解法二](1493-Longest-Subarray-of-1's-After-Deleting-One-Element/1493-Longest-Subarray-of-1's-After-Deleting-One-Element.cpp)：Sliding Window
+
+[参考](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/discuss/708112/JavaC%2B%2BPython-Sliding-Window-at-most-one-0)
+
+怎么说呢，也许Sliding Window也能勉强算Two Pointers吧（大雾）。
+
+其实既然都用到Sliding Window了就可以整个题目都用Sliding Window，而且这种Sliding Window的Window长度可以变化，因为我们只需要保证窗口内的0的数量最多不超过1。我们只需要加入一个计数器记录窗口中0的数量，如果超过了我们就需要缩减窗口的尾部直到0的数量降低为止。
 
 ---
 
@@ -288,111 +300,12 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ---
 
-## <font color=#7F71D9>Sort：</font>
+### 1492. The kth Factor of n
 
-### 75. Sort Colors
-**<font color=#C8A1E6> Sort; Three Pointers </font>** 
-
->Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
->
->Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
-
-#### 解法一：Three Pointers交换排序
-[参考](https://leetcode.com/problems/sort-colors/discuss/26474/Sharing-C%2B%2B-solution-with-Good-Explanation)
-
-设置三个Pointers，low，mid和high，low和mid从头开始，high从尾开始。mid遇到的数字可能有三种情况：
-
-1. 遇到2，则和high交换，这个时候high--，high之后的所有数字都是2（如第二步）
-2. 遇到0，则和low交换，这个时候low++，low之前所有的数字都是0，同时mid++，这是因为我们确定mid交换过来的数字只可能是1，因为**2已经在mid来的路上被处理过了**（如第四步）
-3. 遇到1，直接mid++
-
-这样最后当mid超过high的时候数列就处理完了，注意当mid和high相遇的时候还需要一步操作，因为我们只知道high之后的数字都是2，而不知道当前数字的情况，所以还需要一次判断。
-
-![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200614093810.png)
-
-```Java
-class Solution {
-    public void sortColors(int[] nums) {
-        int low = 0;
-        int mid = 0;
-        int high = nums.length - 1;
-        while (mid <= high)
-        {
-            if (nums[mid] == 0)
-            {
-                nums[mid] = nums[low];
-                nums[low] = 0;
-                low++;
-                mid++;
-            }
-            else if (nums[mid] == 2)
-            {
-                nums[mid] = nums[high];
-                nums[high] = 2;
-                high--;
-            }
-            else
-                mid++;
-        }
-    }
-}
-```
+#### [解法一](1492-The-kth-Factor-of-n.java)：直接遍历前半部分Factor
+先遍历前半部分Factor，如果k小于这个长度则我们直接找到了第k个factor，否则我们需要看k是否在另一半里。注意如果n是完全平方数则总的factor的数量是奇数，所以需要分类讨论。但是最后我们可以找到和k对称的那个factor并将n除以那个factor得到第k个factor。
 
 ---
-
-### [169.](169-Majority-Element/169-Majority-Element-Sort.java) Majority Element
-**<font color=#C8A1E6> Sort; HashMap </font>**
-
----
-
-### 973. K Closest Points to Origin
-**<font color=#C8A1E6> Sort; Map </font>**
-
-#### [解法一](973-K-Closest-Points-to-Origin/973-K-Closest-Points-to-Origin.cpp)：Map排序
-将每个点距离远点的距离计算后作为Map的Key，对应的数值是距离为这个Key的所有点的index组成的vector。因为Map是自动排序的，最后只要按顺序直接输出前K个点即可。
-
-#### [解法二](973-K-Closest-Points-to-Origin/973-K-Closest-Points-to-Origin-Sort.java)：Distance排序后输出
-计算所有的Distance之后排序得到第K位的点的距离。之后再循环遍历所有的点把Distance小于等于这个距离的所有点输出。
-
----
-
-### 977. Squares of a Sorted Array
-**<font color=#C8A1E6> Sort; Two Pointers </font>**
-#### 解法一：直接平方后重新排序
-_时间复杂度：O(nlogn)； 空间复杂度：O(1)_
-
-#### 解法二：Two Pointers，存储进新数组
-[参考](https://leetcode.com/problems/squares-of-a-sorted-array/solution/)
-
-_时间复杂度：O(n)； 空间复杂度：O(n)_
-
----
-
-### [1051.](1051-Height-Checker.java) Height Checker
-**<font color=#C8A1E6> Sort </font>**
-
----
-
-### 1465. Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts
-**<font color=#C8A1E6> Sort; Find biggest num </font>**
-
-#### [解法一]((1465-Maximum-Area-of-a-Piece-of-Cake-After-Horizontal-and-Vertical-Cuts.java))：排序+找最大值
-首先排序，然后对于横向和纵向数组，分别找最大的间距，包括和0以及和最大边界的间距。最后两个最大值相乘。**相乘时注意分别对1000000007取余再对结果取余**，否则会溢出。
-
----
-
-### 1481. Least Number of Unique Integers after K Removals
-**<font color=#C8A1E6> Sort; HashMap; Greedy </font>**
-
-#### [解法一](1481-Least-Number-of-Unique-Integers-after-K-Removals/1481-Least-Number-of-Unique-Integers-after-K-Removals.cpp)：Bucket Sort从较低出现频率的数字开始去除
-
-因为需要最后Unique的Number最少，所以可以从出现频率最低的数字开始一个一个去除，直到不能再去除位置。可以用HashMap来保存每个数字出现的频率，再把所有频率排序（用C++的Map自动排序），然后从频率低到高一个一个减少数字，最后看还剩多少特殊的数字即可。
-
-#### [解法二](1481-Least-Number-of-Unique-Integers-after-K-Removals/1481-Least-Number-of-Unique-Integers-after-K-Removals.java)：直接排序
-
-[参考](https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/discuss/686376/Simple-C%2B%2B-O(N-log-N)-VIDEO-SOL)
-
-直接在记录频率的过程中把某出现频率对应的数字存进一个数组中，将数组排序，最后从低到高进行处理即可。
 
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
@@ -409,3 +322,5 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 ### 1464. Maximum Product of Two Elements in an Array
 ### 1470. Shuffle the Array
 ### 1480. Running Sum of 1d Array    
+### 1491. Average Salary Excluding the Minimum and Maximum Salary
+**<font color=#C8A1E6> Find Biggest Num </font>**
