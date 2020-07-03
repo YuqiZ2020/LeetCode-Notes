@@ -164,6 +164,18 @@ class Solution {
 
 ## <font color=#7F71D9>Trees: </font>
 
+### 107. Binary Tree Level Order Traversal II
+**<font color=#C8A1E6> BFS </font>**
+#### [解法一](107-Binary-Tree-Level-Order-Traversal-II/107-Binary-Tree-Level-Order-Traversal-II.java)：BFS
+
+用BFS广度优先搜索遍历整个树，存下每个结点和其高度，按照高度将结点数值放进对应的数组里。每个结点出队列时先把数值存进对应的数组里（如果数组不存在则需要先初始化），然后把这个结点的左子树结点和右子树结点存进队列里。直到队列为空为止。
+
+#### [解法二](107-Binary-Tree-Level-Order-Traversal-II/107-Binary-Tree-Level-Order-Traversal-II-More-Consise.java)：BFS，不需要存储高度
+
+[参考](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/discuss/35089/Java-Solution.-Using-Queue)
+
+其实并不需要存储每个结点的高度，因为在BFS队列进行处理的时候，我们总是先处理完一层再处理下一层。所以将结点出队列的时候可以一次性把一整层的所有结点出队列，这样所有结点的数值都会存到同一个数组里，这些结点一边出队列一边把左右子树结点入队列，所以下次处理的时候还是一整层。
+
 ### 110. Balanced Binary Tree
 **<font color=#C8A1E6> AVL; Recursion </font>**
 

@@ -27,7 +27,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] 496, 1029
 
 ## DP
-- [ ] 53, 72, 96, 174, 279, 338, 368, 392, 918, 1035, 1277
+- [ ] 53, 62, 72, 96, 174, 279, 338, 368, 392, 918, 1035, 1277
 
 ## Linked Lists
 - [x] Two Pointers: 2, 21, 19, 328
@@ -35,7 +35,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] Others: 206, 237, 707
 
 ## Math
-- [x] 60, 367, 1232
+- [x] 60, 367, 441, 1232
 
 ## Sort
 - [x] 75, 169, 973, 977, 1051, 1465, 1471, 1481
