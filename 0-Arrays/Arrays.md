@@ -307,6 +307,26 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ---
 
+### 1496. Path Crossing
+
+#### [解法一](1496-Path-Crossing.cpp)：直接模拟记录到达的所有结点
+
+---
+
+### 1497. Check If Array Pairs Are Divisible by k
+
+#### [解法一](1497-Check-If-Array-Pairs-Are-Divisible-by-k.cpp)：计算余数配对
+当且仅当 (a + b) mod k = 0时，我们可以将两个数字配对。所以可以允许两种情况：
+
+1) a mod k + b mod k = 0 
+2) a mod k + b mod k = k
+
+因此我们只需要计算每种余数的出现频率，保证余数为0的数有偶数个，剩下其他的余数的数量能一一配对。
+
+另外C++中对负数的余数计算和数学定义不同，因此对于C++，负数的余数计算完之后需要再加一下k，从负的加回正的。
+
+---
+
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
 ### 344. Reverse String
