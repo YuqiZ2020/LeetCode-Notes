@@ -236,6 +236,17 @@ class TrieNode
 
 ---
 
+### 222. Count Complete Tree Nodes
+
+#### [解法一](222-Count-Complete-Tree-Nodes.cpp)：直接递归
+**<font color=#C8A1E6> Recursion </font>** 
+
+[参考](https://leetcode.com/problems/count-complete-tree-nodes/discuss/701392/Two-Solution-or-Simple-0(logn-*-logn)-and-1-liner-recursive-O(n))
+
+一开始没想到，一直想用循环遍历来做，但是其实递归就很简单。二叉树本来就是递归的数据结构。完全二叉树给出的情况只是说最后叶子结点都是完整的一层，其实还是可以用递归来解决。所以就是1 + 左子树节点数 + 右子树节点数即可。
+
+---
+
 ### 226. Invert Binary Tree
 **<font color=#C8A1E6> Recursion </font>** 
 
