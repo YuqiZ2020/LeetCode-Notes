@@ -54,5 +54,5 @@ class Solution {
  * Notes: KMP algorithm. First implement next array
  * to store the max common pre-post-fix of the substring
  * from 0 - i as next[i]. 
- * Then perform the search with now trace back of i in O(n)
+ * Then perform the search with no trace back of i in O(n)
  */
