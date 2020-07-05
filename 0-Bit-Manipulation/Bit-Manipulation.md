@@ -24,3 +24,10 @@
 [参考](https://leetcode.com/problems/power-of-two/discuss/63974/Using-nand(n-1)-trick)
 
 任何2的次方都有一个特点就是2进制是1开头后面全是0，而且这个数减去1得到的数的2进制肯定全是1，且比原来的数少一位。所以如果对两个数取&的话肯定能得到0。
+
+
+### 461. Hamming Distance
+
+#### [解法一](461-Hamming-Distance/461-Hamming-Distance.java)：XOR转二进制字符串数1的数量
+
+#### [解法二](461-Hamming-Distance/461-Hamming-Distance.cpp)：XOR用t & (t - 1) 数1的数量
