@@ -110,6 +110,18 @@ class Solution {
 
 ---
 
+### 212. Word Search II
+**<font color=#C8A1E6> Trie; DFS </font>**
+#### [解法一](212-Word-Search-II.java)：Trie存储单词，DFS搜索
+
+[参考](https://leetcode.com/problems/word-search-ii/discuss/59780/Java-15ms-Easiest-Solution-(100.00))
+
+因为涉及到单词的存储和查找，所以可以用Trie。Trie的建立和 [208.](../0-Graphs&Search/208-Implement-Trie-(Prefix-Tree).java) Implement Trie 差不多，但是可以做很多改动。首先不需要character val域，因为如果有的话那个地方对应的Child就不是null，然后最后的isWord域可以直接用一个string word代替。因为我们一旦找到了一个单词就需要把这个单词存储进最后的答案数组中，要重组字符显然很麻烦，还不如一开始就存储好。
+
+建立好之后就直接在board上用两重循环在不同的起始点进行DFS。DFS的时候有两个注意点：首先要避免重复加同样的单词，因为有可能在搜索的过程中再一次碰到了这个单词，就会重复加，所以每次找到一个单词之后直接在Trie里把这个单词去掉。其次要避免重复搜索回来，所以每次搜索的时候做一个标记，把当前board上的字符替换成一个非单词字母，这样下次搜回来知道这个地方在这次搜索中被搜过了就不会走重复的路。最后把这个字符改回去即可。
+
+---
+
 ### 438. Find All Anagrams in a String
 ### 567. Permutation in String
 **<font color=#C8A1E6> Sliding Window </font>**
