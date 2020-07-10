@@ -197,6 +197,12 @@ Base case是当前结点为nullptr或者之后没有结点的时候，直接返�
 
 ---
 
+### 430. Flatten a Multilevel Doubly Linked List
+**<font color=#C8A1E6> Linked Lists; Recursion</font>**
+
+#### [解法一](430-Flatten-a-Multilevel-Doubly-Linked-List.java)：Recursion
+首先找到最近的有child的结点，然后先把这个结点的后续结点保存，把child结点链接到这个结点之后，然后对child结点进行recursive call处理。然后找到linked list的末端，把之前保存的后续结点重新链接回来。
+
 ### 707. Design Linked Lists
 **<font color=#C8A1E6> Linked Lists</font>**
 
