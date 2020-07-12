@@ -82,3 +82,13 @@ _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 #### [解法二](528-Random-Pick-with-Weight/528-Random-Pick-with-Weight.java)：累积概率 + 顺序查找
 
 用顺序查找来找到指定的数字。
+
+---
+
+### 1482. Minimum Number of Days to Make m Bouquets
+
+#### 解法一：对天数进行二分查找
+
+[参考](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/discuss/686316/JavaC%2B%2BPython-Binary-Search)
+
+给定一个确定的天数，我们就可以计算出连续的花开情况，从而算出最多能得到的花束的数量。因此如果我们发现花束少了我们就可以到右侧的搜索区间，否则去左侧的搜索区间。直到最后左闭右开区间的两个指针汇合为止。
