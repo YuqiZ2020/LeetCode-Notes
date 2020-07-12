@@ -103,3 +103,8 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 [参考](https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/discuss/686376/Simple-C%2B%2B-O(N-log-N)-VIDEO-SOL)
 
 直接在记录频率的过程中把某出现频率对应的数字存进一个数组中，将数组排序，最后从低到高进行处理即可。
+
+---
+
+### 1502. Can Make Arithmetic Progression From Sequence
+**<font color=#C8A1E6> Sort </font>**
