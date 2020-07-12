@@ -108,3 +108,11 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ### 1502. Can Make Arithmetic Progression From Sequence
 **<font color=#C8A1E6> Sort </font>**
+
+---
+
+### 1509. Minimum Difference Between Largest and Smallest Value in Three Moves
+
+#### [解法一](1509-Minimum-Difference-Between-Largest-and-Smallest-Value-in-Three-Moves.java)：排序选择最大最小
+
+又是一道只要想清楚就非常简单的题目。因为我们改变数字其实相当于在求最大最小差值的过程中把这个数字去掉。所以我们永远是在改动最大或者最小的数字。因此经过排序之后我们只有四种可能性，分别关于如何删除数字。3 - 0， 2 - 1， 1 - 2， 0 - 3，一共四种情况，枚举选择最佳即可。
