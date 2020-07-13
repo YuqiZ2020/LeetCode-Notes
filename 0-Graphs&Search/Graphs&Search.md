@@ -168,6 +168,19 @@ class Solution {
 
 ---
 
+### 1514. Path with Maximum Probability
+**<font color=#C8A1E6> Dijkstra </font>**
+
+#### 解法一：DFS 超时
+
+#### [解法二](1514-Path-with%20Maximum-Probability.java)：Dijkstra
+这算是一个比较普通的Dijkstra算法的改动。原本的是找最短的路径，现在是找最大的概率。
+先用priority queue来帮助我们每次选择概率最高的结点。但是priority queue不能做编辑，所以用visited来记录访问过的结点。然后还要用一个额外的数组来记录probability，方便在那里面直接改动。然后每次我们到新的结点，如果没有访问过，且能有更高的probability，我们就记录并放入priority queue。
+
+实际Implement这个算法还是花了我很长时间。首先这个Comparator还是得用Compare，不能直接做减法，会有问题。然后要记录是否visited过，因为原本的算法是贪心，如果visited过了就不需要再讨论了，如果不设立这个就会超时。
+
+---
+
 ## <font color=#7F71D9>Trees: </font>
 
 ### 107. Binary Tree Level Order Traversal II
