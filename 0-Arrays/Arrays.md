@@ -2,6 +2,15 @@
 
 ## <font color=#7F71D9>Two Pointers：</font>
 
+### 15. 3Sum
+**<font color=#C8A1E6> Two Pointers </font>** 
+
+#### [解法一](15-3Sum.java)：先确定Two Sum，用Two Pointers解决Two Sum
+
+先把数组排序，接下来一重循环分别确定每个点为其中一个数，这样我们知道了剩下两个数的和。在剩下的数字中（避免重复），我们可以用两个Pointer分贝从高处和低处开始进行配对，每次如果结果小了我们就移动低处，如果数字大了我们就移动高处，直到两者相遇。我们同时要避免重复的数字，所以如果发现一个配对，我们就要跳过那些一样的数字。
+
+---
+
 ### 26. Remove Duplicates From Sorted Array
 **<font color=#C8A1E6> Two Pointers; In-place Modification </font>** 
 #### [解法一](26-Remove-Duplicates-from-Sorted-Array/26-Remove-Duplicates-from-Sorted-Array.java)：Three Pointers
@@ -70,6 +79,20 @@ class Solution {
     }
 }
 ```
+
+---
+
+### 264. Ugly Number II
+**<font color=#C8A1E6> Three Pointers</font>** 
+
+#### [解法一](264-Ugly-Number-II/264-Ugly-Number-II.java)：Three Pointers
+丑数只包含Prime Factor是2, 3, 5的数字，所以如果我们有之前的所有丑数，尝试将那些数字乘2, 3 或5我们就可以得到之后的丑数。接下来就是排序的问题，这个问题可以被转化成一个类似合并三个有序列表的问题。
+
+我们先考虑对一个之前的丑数 k，2k，3k，和 5k 都可以是之后的丑数，首先可以确定的是这三个数自己是有序的，但是可能有别的数字m，有 3m 比 2k 小。但是我们可以确定 2k 一定比 2(k - 1)要大，所以我们只要建立三个Pointer，分别进行乘2，3和5的操作，每次找最小的数，然后一旦这个数经过了这个pointer的处理，我们就可以把pointer前移，直到我们的数字符合要求为止。
+
+#### [解法二](264-Ugly-Number-II/264-Ugly-Number-II.cpp)：Three Pointers 简化比大小过程
+[参考](https://leetcode.com/problems/ugly-number-ii/discuss/69362/O(n)-Java-solution)
+
 
 ---
 
@@ -271,6 +294,13 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 ---
 
+### 66. Plus One
+#### [解法一](66-Plus-One.java)：直接加，最后进位分开考虑
+
+[参考](https://leetcode.com/problems/plus-one/discuss/24082/My-Simple-Java-Solution)
+
+最后的额外进位只有当所有数字都是9的时候才会发生，所以肯定是1开头后面全是0，建立一个新数组即可。
+
 ### 448. Find All Numbers Disappeared in an Array
 **<font color=#C8A1E6> HashMap </font>**
 
@@ -286,6 +316,26 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 遇到一个数就把数组对应这个数 - 1的为下表的数变成负数来做标记，最后遍历，那些没有变成负数的下标 + 1 即为没有出现过的数。
+
+---
+
+### 957. Prison Cells After N Days
+
+#### [解法一](957-Prison-Cells-After-N-Days/957-Prison-Cells-After-N-Days.java)：寻找循环
+
+[参考](https://leetcode.com/problems/prison-cells-after-n-days/discuss/205684/JavaPython-Find-the-Loop-or-Mod-14)
+
+如果按照普通算法模拟就会超时，因此要记录并找到整个循环，最后跳过那些重复的步骤。可以把数组转换成字符串来存储，一旦找到一个重复的状态则跳过等倍数的状态，最后算出最终状态。
+
+![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200703220813.png)
+
+#### [解法二](957-Prison-Cells-After-N-Days/957-Prison-Cells-After-N-Days-MOD-14.java)：确定14天是一个循环
+
+[参考1](https://math.stackexchange.com/questions/3311568/why-does-this-pattern-repeat-after-14-cycles-instead-of-256-can-you-give-a-proo)
+
+[参考2](https://leetcode.com/problems/prison-cells-after-n-days/discuss/205684/JavaPython-Find-the-Loop-or-Mod-14)
+
+额，怎么说，其实我还是没太懂为什么是14天。总之就是说1号和8号从第一天开始就是一定是0的，然后2，4，6号的上一天决定3，5，7号的下一天，反之也是。接下来因为3，5，7又决定下一天的2，4，6，所以2，4，6，可以决定2天之后的自己。因此三个数字的变化决定了整个数组状态的变化。所以一共2^3 = 8种循环，每个循环是两天，所以最大的循环可能是16天。经过尝试发现14天一个循环，因此取余数即可。
 
 ---
 
@@ -324,6 +374,16 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 因此我们只需要计算每种余数的出现频率，保证余数为0的数有偶数个，剩下其他的余数的数量能一一配对。
 
 另外C++中对负数的余数计算和数学定义不同，因此对于C++，负数的余数计算完之后需要再加一下k，从负的加回正的。
+
+![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200703220838.png)
+
+---
+
+### 1503. Last Moment Before All Ants Fall Out of a Plank
+
+#### [解法一](1503-Last-Moment-Before=All-Ants-Fall-Out-of-a-Plank.java)：蚂蚁转向和没转向是一样的
+
+题目中虽然提到了蚂蚁转向，但是其实蚂蚁转向了之后速度不变所以还是蚂蚁。并不需要考虑转向，只需要找最大最小值即可。
 
 ---
 
