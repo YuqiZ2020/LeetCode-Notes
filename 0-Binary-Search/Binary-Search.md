@@ -7,6 +7,7 @@ _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 
 直接二分查找，建立左闭右开的区间，这样区间内所有的数字都是有可能的，最后当左边和右边的边界到达同一个位置的时候区间的大小为0，这个时候返回low（或者high）即可，如果查找到了则是这个数字，否则就是需要插入的位置。
 
+---
 
 ### 136. Single Number
 ### 540. Single Element in a Sorted Array
@@ -67,6 +68,8 @@ _时间复杂度：O(log(n))； 空间复杂度：O(1)_
 二分查找，如果当前找到的点是Bad Version，则往前找，否则往后找（包括当前这个）。最后当左侧pointer大于等于右侧pointer时，返回左侧pointer所指的值。
 
 建立一个左闭右开区间，最后当区间大小为0（即left == right）的时候，判定找到了，返回left或right皆可。
+
+---
 
 ### 528. Random Pick with Weight
 #### [解法一](528-Random-Pick-with-Weight/528-Random-Pick-with-Weights-Binary-Search.java)：累积概率 + 二分查找
