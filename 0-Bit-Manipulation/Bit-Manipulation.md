@@ -1,7 +1,7 @@
 # Bit Manipulation
 
 ### 136. Single Number
-**<font color=#C8A1E6> Sort; HashMap; Bit Manipulation</font>**
+**<font color=#C8A1E6> Sort; HashMap; Bit Manipulation; Single Number</font>**
 
 #### [解法一](136-Single-Number/136-Single-Number.java)：排序查找
 
@@ -14,6 +14,7 @@
 任何一个数字XOR自己都是0，一个数字XOR 0 得到的还是这个数字，所以如果把所有的数字都XOR的话最后得到的结果就是那个想要的Single Number。感觉Bit Manipulation真的很巧妙诶。
 
 ### 137. Single Number II
+**<font color=#C8A1E6> Bit Manipulation; Single Number</font>**
 
 #### [解法一](137-Single-Number-II.java)：Bit Manipulation
 
@@ -33,8 +34,25 @@
 
 ![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200707173535.png)
 
+---
+
+### 190. Reverse Bits
+**<font color=#C8A1E6> Bit Manipulation</font>**
+
+#### [解法一](190-Reverse-Bits.java)：移动Bits
+
+[参考](https://leetcode.com/articles/reverse-bits/)
+
+其实就是一一把n右边的bits推进另一个数字里。具体的方法是建立一个数字ans，然后ans每次都左移，先假设新的这个bit是1。然后用n & 1得到n最右边的bit，用 | 来确定ans最右边的bit应该是什么，也不会改动前面的bit。然后n继续右移即可，因为是判断最右边的bit。
+
+#### 解法二：Integer.reverse(n)
+
+[参考](https://leetcode.com/problems/reverse-bits/discuss/732133/Two-Solution-or-Bitwise-Operators-or-1-Liner-or-Detailed-Explanation)
+
+---
 
 ### 231. Power of Two
+**<font color=#C8A1E6> Bit Manipulation</font>**
 
 #### [解法一](231-Power-of-Two/231-Power-of-Two.java)：不断除以2
 
@@ -44,8 +62,10 @@
 
 任何2的次方都有一个特点就是2进制是1开头后面全是0，而且这个数减去1得到的数的2进制肯定全是1，且比原来的数少一位。所以如果对两个数取&的话肯定能得到0。
 
+---
 
 ### 461. Hamming Distance
+**<font color=#C8A1E6>Bit Manipulation</font>**
 
 #### [解法一](461-Hamming-Distance/461-Hamming-Distance.java)：XOR转二进制字符串数1的数量
 
