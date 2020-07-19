@@ -5,6 +5,12 @@
 #### [解法一](7-Reverse-Integer.java)：一重 For 循环反向重组
 ---
 
+### 151. Reverse Words in a String
+**<font color=#C8A1E6> Reverse String </font>**
+
+#### 解法一：split和trim
+首先题目要求用空格分割字符串，但是会有多个空格，所以可以用特殊的Split函数格式 ```s.split("\\s{1,}");``` 一个及以上的空格都可以。最后字符尾部可能会有额外空格，用trim()去除即可。
+
 ### 392. Is Subsequence
 **<font color=#C8A1E6> DP; Two Pointers </font>**
 
