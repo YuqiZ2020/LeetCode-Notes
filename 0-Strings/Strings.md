@@ -141,3 +141,9 @@ class Solution {
 暴力求解会超时，而且我们可以发现题目要求的pattern长度是特定的，所以可以尝试Sliding Window。因为要求长度特定的所有二进制Pattern，所有的Pattern都是不一样的，而且我们可以计算得出所有Pattern一共有多少数量。所以在Sliding Window前进的过程中不断把遇到的Pattern存储在一个集合中，最后查看集合中元素的数量确定我们是否已经遇到了所有Pattern
 
 ---
+
+### 1513. Number of Substrings With Only 1s
+
+#### [解法一](1461-Check-If-a-String-Contains-All-Binary-Codes-of-Size-K.cpp)：数学求和
+
+一个长度为k的字符串有k * (k + 1) / 2个子串，所以利用这个来求长度就可以了。具体实现modulo的时候要仔细。
