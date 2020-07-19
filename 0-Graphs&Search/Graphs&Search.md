@@ -13,6 +13,15 @@
 
 ---
 
+### 210. Course Schedule II
+**<font color=#C8A1E6> Topological Sort </font>**
+
+#### [解法一](210-Course-Schedule-II.java)：BFS拓扑排序
+
+和 [207.](207-Course-Schedule.java) Course Schedule 是一样的，除了要加上记录我们访问的顺序，所以额外加一个数组进行记录，最后判断是否访问过所有结点即可。
+
+---
+
 ### 787. Cheapest Flights Within K Stops
 **<font color=#C8A1E6> DFS </font>** 
 
