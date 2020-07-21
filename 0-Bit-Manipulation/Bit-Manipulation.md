@@ -3,7 +3,7 @@
 ### 50 Pow(x, n)
 **<font color=#C8A1E6> Recursion; Bit Manipulation</font>**
 
-#### [解法一](50-Pow(x,n).java)：二进制Bit Manipulation
+#### [解法一](50-Pow(x,n)/50-Pow(x,n).java)：二进制Bit Manipulation
 
 [参考](https://leetcode.com/problems/powx-n/discuss/739113/2-Solution-or-Iterative-with-bitwise-operator-or-Recursive)
 
@@ -13,7 +13,7 @@
 
 ![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200718222237.png)
 
-#### [解法二]：递归
+#### [解法二](50-Pow(x,n)/50-Pow(x,n)-Recursive.cpp)：递归
 
 [参考](https://leetcode.com/problems/powx-n/discuss/739113/2-Solution-or-Iterative-with-bitwise-operator-or-Recursive)
 
