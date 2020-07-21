@@ -1,5 +1,26 @@
 # Bit Manipulation
 
+### 50 Pow(x, n)
+**<font color=#C8A1E6> Recursion; Bit Manipulation</font>**
+
+#### [解法一](50-Pow(x,n).java)：二进制Bit Manipulation
+
+[参考](https://leetcode.com/problems/powx-n/discuss/739113/2-Solution-or-Iterative-with-bitwise-operator-or-Recursive)
+
+一个Exponent可以转化成二进制表示，而任何数的二的次方倍都可以通过把这个数不停的平方得到。比如x的9次方就可以表达成x的8次方乘x的1次方，所以我们不停地平方x并根据exponent的bit判断当前位置需不需要进行乘法操作即可。
+
+为了解决Smallest Integer直接换成正数会Overflow的问题，可以先转化成long。
+
+![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200718222237.png)
+
+#### [解法二]：递归
+
+[参考](https://leetcode.com/problems/powx-n/discuss/739113/2-Solution-or-Iterative-with-bitwise-operator-or-Recursive)
+
+如果exponent是偶数我们可以把x平方，然后处理对应的exponent / 2，否则我们可以只乘一个x，然后exponent - 1，这样下一层递归就是偶数。Base case就是如果到0就是return 1。如果是负数的话1除以递归调用即可。
+
+另外要额外考虑INT_MIN的情况，否则直接变成正数会Overflow。
+
 ### 136. Single Number
 **<font color=#C8A1E6> Sort; HashMap; Bit Manipulation; Single Number</font>**
 
