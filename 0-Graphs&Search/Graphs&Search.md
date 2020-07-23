@@ -192,6 +192,12 @@ class Solution {
 
 ## <font color=#7F71D9>Trees: </font>
 
+### 103. Binary Tree Zigzag Level Order Traversal
+**<font color=#C8A1E6> BFS </font>**
+
+#### [解法一](103-Binary-Tree-Zigzag-Level-Order-Traversal.java)：BFS
+和[107.](107-Binary-Tree-Level-Order-Traversal-II/107-Binary-Tree-Level-Order-Traversal-II-More-Consise.java) Binary Tree Level Order Traversal II基本是一样的代码。除了一层一层存储的时候不需要每次存到最前面，还有就是每一层内部的存储顺序可以有正序或逆序，用一个boolean flag来判断即可。
+
 ### 107. Binary Tree Level Order Traversal II
 **<font color=#C8A1E6> BFS </font>**
 #### [解法一](107-Binary-Tree-Level-Order-Traversal-II/107-Binary-Tree-Level-Order-Traversal-II.java)：BFS
