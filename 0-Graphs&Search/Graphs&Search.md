@@ -492,6 +492,39 @@ public:
 
 ## <font color=#7F71D9>Search: </font>
 
+### 79. Word Search
+**<font color=#C8A1E6> DFS </font>** 
+
+#### [解法一](79-Word-Search.java)：DFS查找
+
+[参考](https://leetcode.com/problems/word-search/discuss/27811/My-Java-solution)
+
+额，这道题如果用常用的DFS写法还会超时。这个DFS写法的好处就在于用Short Circuit省去了很多不必要的查找和判断。先查找再判断是否越界。然后用 || 就可以避免不必要的查找，如果一个方向已经确定能找到了就不需要找其他方向了。
+
+```Java
+class Solution {
+    private boolean dfs(char[][] board, String word, int i, int j, int idx)
+    {
+        if (idx == word.length())
+            return true;
+        if (i >= board.length || i < 0 || j >= board[i].length || j < 0 || 
+           board[i][j] != word.charAt(idx))
+            return false;
+        char temp = board[i][j];
+        board[i][j] = '*';
+        if (dfs(board, word, i - 1, j, idx + 1) || 
+           dfs(board, word, i + 1, j, idx + 1) ||
+           dfs(board, word, i, j - 1, idx + 1) || 
+           dfs(board, word, i, j + 1, idx + 1))
+        {
+            return true;
+        }
+        board[i][j] = temp;
+        return false;
+    }
+}
+```
+
 ### 130. Surrounded Regions
 **<font color=#C8A1E6> DFS </font>** 
 
