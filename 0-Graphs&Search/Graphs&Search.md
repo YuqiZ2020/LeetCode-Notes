@@ -685,3 +685,14 @@ class Solution {
 ```
 
 ---
+
+### 1519. Number of Nodes in the Sub-Tree With the Same Label
+**<font color=#C8A1E6> DFS </font>** 
+
+#### [解法一](1519-Number-of-Nodes-in-the-Sub-Tree-With-the-Same-Label.java)：DFS，在每个结点记录26个字母的出现数量
+
+这个题目真的想了很久很久，倒是也想出来了。一开始能想到DFS，但是问题就是在于只能记录一个字母的出现数量。如果每个结点都搜索的话肯定会超时。另外的想到用栈的话也很麻烦。最后看到只有26个字母，所以直接记录26个字母就可以了。建立了一个n * 26的矩阵来进行记录。
+
+先把所有字母自己的count都在进入DFS前记录好。接下来每次DFS搜索都只要把所有字母都根据孩子结点的值全部更新累计一遍。最后返回每个结点自己对应的字母下所存储的值。
+
+---
