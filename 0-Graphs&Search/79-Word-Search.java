@@ -1,3 +1,11 @@
+/**
+ * Problem 79: Word Search
+ * Prompt: Given a 2D board and a word, find if the word exists in the grid.
+ * The word can be constructed from letters of sequentially adjacent cell, 
+ * where "adjacent" cells are those horizontally or vertically neighboring. 
+ * The same letter cell may not be used more than once.
+ * Date: 07/21/2020
+ */
 class Solution {
     public boolean exist(char[][] board, String word) {
         char start = word.charAt(0);
