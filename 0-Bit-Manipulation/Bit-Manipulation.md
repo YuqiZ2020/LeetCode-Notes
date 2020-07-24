@@ -85,6 +85,17 @@
 
 ---
 
+### 260. Single Number III
+**<font color=#C8A1E6> Bit Manipulation</font>**
+
+#### [解法一](260-Single-Number-III.java)：先XOR再分类
+
+因为XOR可以去掉重复的所有其他数字，最后会留下n1 XOR n2，我们要想办法把两个数区分开来。这个数中的某个1肯定是来自两个数中的一个，不会来自同一个，所以我们可以用 storage &= -storage来留下最右边的1。接下来的分类方法就是看数字有没有这个1，有的分一组，没有的分另一组，最后两个组里剩下的就是两个数字。
+
+![graph](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200724170603.png)
+
+---
+
 ### 461. Hamming Distance
 **<font color=#C8A1E6>Bit Manipulation</font>**
 
