@@ -611,6 +611,14 @@ class Solution {
 
 ---
 
+### 797. All Paths From Source to Target
+**<font color=#C8A1E6> DFS </font>** 
+
+#### [解法一](797-All-Paths-From-Source-to-Target.java)：DFS
+
+直接搜索，不需要记录visited，因为题目说了是acyclic。每次把路过的点存在一个Array List里，退出再删除，如果遇到终点了则把当前路径存入ans里面，注意需要创建一个新的Array List，否则是Pass by Reference，最后会变空。
+
+---
 
 ### 993. Cousins in Binary Tree
 #### [解法一](993-Cousins-in-Binary-Tree/993-Cousins-in-Binary-Tree.cpp)：分步DFS
