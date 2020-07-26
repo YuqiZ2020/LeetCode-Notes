@@ -49,6 +49,18 @@ class Solution {
 
 ---
 
+### 154. Find Minimum in Rotated Sorted Array II
+
+#### [解法一](154-Find-Minimum-in-Rotated-Sorted-Array-II.java)：二分查找分三类
+
+一共有两种情况，一种是中间某点有置换位置，另一种是完全没有置换位置。如果没有置换位置的话可以分两种情况，如果中间点比右边小则说明可以往左找（包括当前点），否则往右边找（不包括当前点，因为当前点比右边的大或者相等）。
+
+但是如果中间有置换位置，则发现在两数相等的情况下需要往左找，和上一种情况中的往右找相矛盾。所以只能确定的是可以把右侧边界前移（因为前面有和这个数相同的数，所以这个数可以省去）。
+
+![图解](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200725203018.png)
+
+---
+
 ### 275. H-Index-II
 #### [解法一](275-H-Index-II.java)：二分查找
 _时间复杂度：O(log(n))； 空间复杂度：O(1)_
