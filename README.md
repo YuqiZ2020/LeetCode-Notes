@@ -35,7 +35,7 @@ Notes, Codes and Ideas on LeetCode Problems
 - [x] Others: 206, 237, 707
 
 ## Math
-- [x] 60, 367, 441, 1232
+- [x] 60, 258, 367, 441, 1232
 
 ## Sort
 - [x] 75, 169, 973, 977, 1051, 1465, 1471, 1481
