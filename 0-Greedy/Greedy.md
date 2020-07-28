@@ -23,6 +23,19 @@
 
 ---
 
+### 621. Task Scheduler
+**<font color=#C8A1E6> Greedy </font>**
+
+#### [解法一](621-Task-Scheduler.java)：计算需要多少额外空间
+
+[参考](https://leetcode.com/problems/task-scheduler/discuss/760131/Java-Concise-Solution-Intuition-Explained-in-Detail)
+
+最坏情况就是一共只有一个字母，所以每个字母之前都必须要全部放入空格，最多的空格数量是(maxCount - 1) * n。如果我们有别的字母就可以把这些字母填进去。我们其实不用关心填什么字母，这些字母因为数量小于等于最大maxCount，所以顶多超出能填入的最大数量(maxCount - 1) 一个，超出的补在最后就行。所以每次把maxSpace减掉字母的数量或者(maxCount - 1)，最后把空格数加上原数组长度即可。
+
+![图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200728175139.png)
+
+---
+
 ### 1029. Two City Scheduling
 **<font color=#C8A1E6> Greedy; Sort </font>**
 
