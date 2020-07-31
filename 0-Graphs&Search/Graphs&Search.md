@@ -696,3 +696,16 @@ class Solution {
 先把所有字母自己的count都在进入DFS前记录好。接下来每次DFS搜索都只要把所有字母都根据孩子结点的值全部更新累计一遍。最后返回每个结点自己对应的字母下所存储的值。
 
 ---
+
+### 1530. Number of Good Leaf Nodes Pairs
+**<font color=#C8A1E6> DFS </font>** 
+
+#### [解法一](1530-Number-of-Good-Leaf-Nodes-Pairs/1530-Number-of-Good-Leaf-Nodes-Pairs.java)：DFS，返回离父母结点的距离
+
+Base case是如果当前结点是叶子结点，则到双亲结点的距离是1，返回一个包含1的ArrayList。接下来每个结点，左子树返回一个ArrayList，右子树返回一个ArrayList，两个ArrayList代表左右子树所有叶子节点离当前点的距离，所以只需要两重循环配对相加判断并累积答案即可。接下来要把所有的结点的距离加一合并进同一个ArrayList返回给上一层，继续判断。
+
+#### [解法二](1530-Number-of-Good-Leaf-Nodes-Pairs/1530-Number-of-Good-Leaf-Nodes-Pairs-More-Consise.cpp)：用数组保存距离，只关心距离10以内的（题目限制条件）
+
+[参考](https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/discuss/755784/Java-Detailed-Explanation-Post-Order-Cache-in-Array)
+
+因为题目给定了条件说Distance不超过10，所以可以建立一个大小为11的数组，包含距离0-10的点的个数，其他部分和解法一差不多，也是dfs求解，这样的话可以省掉循环的很多时间，如果两个距离配对相加符合条件则直接把两个距离对应的点的个数相乘（配对）即可。
