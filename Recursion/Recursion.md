@@ -62,6 +62,8 @@ public:
 
 #### [解法一](140-Word-Break-II.java)：递归并用map保存结果
 
+[参考](https://leetcode.com/problems/word-break-ii/discuss/44167/My-concise-JAVA-solution-based-on-memorized-DFS)
+
 直接DFS会超时，所以用空间换时间每次检索的时候在HashMap里面保存答案，下次遇到一样的直接输出即可。搜索的过程中不能按照前缀一个一个搜索，会很慢，应该直接查找字典里面有没有单词是这个字符串的前缀，如果有的话进行下一步查找，最后合并答案，保存，输出。没有的话可以直接不操作（或者已经到字符串尾端了也不用操作），这样还做了剪枝。
 
 其实总的来说也是个比较简单的算法，主要是细节要注意节省时间。
