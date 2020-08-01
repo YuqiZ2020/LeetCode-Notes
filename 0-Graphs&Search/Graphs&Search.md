@@ -198,6 +198,15 @@ class Solution {
 #### [解法一](103-Binary-Tree-Zigzag-Level-Order-Traversal.java)：BFS
 和[107.](107-Binary-Tree-Level-Order-Traversal-II/107-Binary-Tree-Level-Order-Traversal-II-More-Consise.java) Binary Tree Level Order Traversal II基本是一样的代码。除了一层一层存储的时候不需要每次存到最前面，还有就是每一层内部的存储顺序可以有正序或逆序，用一个boolean flag来判断即可。
 
+### 106. Construct Binary Tree from Inorder and Postorder Traversal
+**<font color=#C8A1E6> Recursion </font>**
+
+#### [解法一](106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal.java)：确定左右子树范围，递归构建
+
+根据后序遍历的最后一个数字得到当前树的根节点的数值。接下来在中序遍历中找到这个数，这个数左边就是左子树，右边就是右子树，对应的字符串在后序遍历中也有。所以递归的时候把这些部分的边界都传递进去就行。因为两个数组的长度应该是一样的，所以传递参数的时候传递前序开头，前序结尾，后序开头即可。在函数中可以确定后序结尾。
+
+![](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200731231836.png)
+
 ### 107. Binary Tree Level Order Traversal II
 **<font color=#C8A1E6> BFS </font>**
 #### [解法一](107-Binary-Tree-Level-Order-Traversal-II/107-Binary-Tree-Level-Order-Traversal-II.java)：BFS
