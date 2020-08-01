@@ -7,14 +7,14 @@
 
 #### [解法一](15-3Sum.java)：先确定Two Sum，用Two Pointers解决Two Sum
 
-先把数组排序，接下来一重循环分别确定每个点为其中一个数，这样我们知道了剩下两个数的和。在剩下的数字中（避免重复），我们可以用两个Pointer分贝从高处和低处开始进行配对，每次如果结果小了我们就移动低处，如果数字大了我们就移动高处，直到两者相遇。我们同时要避免重复的数字，所以如果发现一个配对，我们就要跳过那些一样的数字。
+先把数组排序，接下来一重循环分别确定每个点为其中一个数，这样我们知道了剩下两个数的和。在剩下的数字中（避免重复），我们可以用两个Pointer分别从高处和低处开始进行配对，每次如果结果小了我们就移动低处，如果数字大了我们就移动高处，直到两者相遇。我们同时要避免重复的数字，所以如果发现一个配对，我们就要跳过那些一样的数字。
 
 ---
 
 ### 26. Remove Duplicates From Sorted Array
 **<font color=#C8A1E6> Two Pointers; In-place Modification </font>** 
 #### [解法一](26-Remove-Duplicates-from-Sorted-Array/26-Remove-Duplicates-from-Sorted-Array.java)：Three Pointers
-一个pointer从 0 ~ nums.length 进行写入，两个pointer在前方不断寻找一个一个数字区间，当找到新区间或走到终点时让第一个pointer将旧区间的值写入。
+一个pointer从 ```0 ~ nums.length``` 进行写入，两个pointer在前方不断寻找一个一个数字区间，当找到新区间或走到终点时让第一个pointer将旧区间的值写入。
 
 ![应用举例](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200521174546.png)
 
@@ -88,7 +88,7 @@ class Solution {
 #### [解法一](264-Ugly-Number-II/264-Ugly-Number-II.java)：Three Pointers
 丑数只包含Prime Factor是2, 3, 5的数字，所以如果我们有之前的所有丑数，尝试将那些数字乘2, 3 或5我们就可以得到之后的丑数。接下来就是排序的问题，这个问题可以被转化成一个类似合并三个有序列表的问题。
 
-我们先考虑对一个之前的丑数 k，2k，3k，和 5k 都可以是之后的丑数，首先可以确定的是这三个数自己是有序的，但是可能有别的数字m，有 3m 比 2k 小。但是我们可以确定 2k 一定比 2(k - 1)要大，所以我们只要建立三个Pointer，分别进行乘2，3和5的操作，每次找最小的数，然后一旦这个数经过了这个pointer的处理，我们就可以把pointer前移，直到我们的数字符合要求为止。
+我们先考虑对一个之前的丑数 k，2k，3k，和 5k 都可以是之后的丑数，首先可以确定的是这三个数自己是有序的，但是可能有别的数字m，有 3m 比 2k 小。但是我们可以确定 ```2k``` 一定比 ```2(k - 1)``` 要大，所以我们只要建立三个Pointer，分别进行乘2，3和5的操作，每次找最小的数，然后一旦这个数经过了这个pointer的处理，我们就可以把pointer前移，直到我们的数字符合要求为止。
 
 #### [解法二](264-Ugly-Number-II/264-Ugly-Number-II.cpp)：Three Pointers 简化比大小过程
 [参考](https://leetcode.com/problems/ugly-number-ii/discuss/69362/O(n)-Java-solution)
@@ -111,7 +111,7 @@ class Solution {
 
 [参考](https://leetcode.com/problems/find-the-duplicate-number/solution/)
 
-这可以转化成一个Linked List问题，这真的完全想不到。因为题目限制了数组中的数只可能是1-n之间的数，所以每个数字既是数值又可以是index。因此链表每个数字的下一个数字就是这个数字作为index所代表的数。这样数组中的任何重复的数字就会让链表出现环路，因为重复的数字会让Pointer走向重复的道路。
+这可以转化成一个Linked List问题，这真的完全想不到。因为题目限制了数组中的数只可能是 1 - n 之间的数，所以每个数字既是数值又可以是index。因此链表每个数字的下一个数字就是这个数字作为index所代表的数。这样数组中的任何重复的数字就会让链表出现环路，因为重复的数字会让Pointer走向重复的道路。
 
 这之后就可以转化成[142.](../0-Linked-Lists/142-Linked-List-Cycle-II.cpp) Linked List Cycle II用快慢两个指针来寻找环路的开头。
 
@@ -267,7 +267,7 @@ public:
 
 #### [解法一](1493-Longest-Subarray-of-1's-After-Deleting-One-Element/1493-Longest-Subarray-of-1's-After-Deleting-One-Element.java)：压缩所有的1
 
-因为我们需要连续的1的长度，我们可以先把已经连续的1压缩，然后再看最大的值能到多少。每次取一个sum来对1进行加和，一旦我们遇到一个0就把这个数字放进ArrayList中，并把sum重设成0，注意如果这个时候sum本来就是0，0也会被存放进ArrayList中。结束遍历的时候最后的sum也要放进ArrayList中。
+因为我们需要连续的1的长度，我们可以先把已经连续的1压缩，然后再看最大的值能到多少。每次取一个 ```sum``` 来对1进行加和，一旦我们遇到一个0就把这个数字放进ArrayList中，并把 ```sum``` 重设成0，注意如果这个时候 ```sum``` 本来就是0，0也会被存放进ArrayList中。结束遍历的时候最后的sum也要放进ArrayList中。
 
 最后我们遍历ArrayList，设置一个长度为2的窗口，比较窗口中数字的和，找到最大的和。这其实就代表了把两组1中的0去掉能达到的最大长度。而且因为我们只能去掉一个0，所以有多个连续的0的时候就不能跳过这些0。
 
@@ -315,7 +315,7 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 [参考](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/discuss/92956/Java-accepted-simple-solution)
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
-遇到一个数就把数组对应这个数 - 1的为下表的数变成负数来做标记，最后遍历，那些没有变成负数的下标 + 1 即为没有出现过的数。
+遇到一个数就把数组对应这个数 - 1 的为下表的数变成负数来做标记，最后遍历，那些没有变成负数的下标 + 1 即为没有出现过的数。
 
 ---
 
@@ -404,3 +404,5 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 ### 1480. Running Sum of 1d Array    
 ### 1491. Average Salary Excluding the Minimum and Maximum Salary
 **<font color=#C8A1E6> Find Biggest Num </font>**
+### 1512. Number of Good Pairs
+### 1528. Shuffle String
