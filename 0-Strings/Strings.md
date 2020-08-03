@@ -140,6 +140,12 @@ class Solution {
 
 ---
 
+### 520. Detect Capital
+
+#### [解法一](520-Detect-Capital.java)：分两类讨论，遍历判断大小写
+
+---
+
 ### 1461. Check If a String Contains All Binary Codes of Size K
 **<font color=#C8A1E6> Sliding Window </font>**
 
