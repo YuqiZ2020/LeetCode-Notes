@@ -37,5 +37,15 @@ class Solution {
 
 /**
  * Notes: DP
- * Three Operations each relate to a previous condition
+ * Assume we are doing word1 horizontal, word2 vertical, and we are 
+ * editing word2 to become word1. (Either way would work)
+ * Three Operations each relate to a previous condition. When one way 
+ * is to proceed from the top left corner, where the two sequences 
+ * are up till the second till last element. If the last element is 
+ * the same then the edit cost is the same, other wise need extra cost
+ * for replacement. 
+ * The other way is to increment one letter from word2 to word1, which is
+ * moving from top to current. 
+ * The third way is to delete one letter from word2 to word1, which is
+ * moving from left to current. 
  */
