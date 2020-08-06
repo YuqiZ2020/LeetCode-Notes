@@ -301,6 +301,18 @@ _时间复杂度：O(n)； 空间复杂度：O(n)_
 
 最后的额外进位只有当所有数字都是9的时候才会发生，所以肯定是1开头后面全是0，建立一个新数组即可。
 
+---
+
+### 442. Find All Duplicates in an Array
+
+#### [解法一](442-Find-All-Duplicates-in-an-Array.java)：用正负确定一个数是否已经出现
+
+[参考](https://leetcode.com/problems/find-all-duplicates-in-an-array/discuss/775798/c%2B%2B-Four-Solution-or-O-(N*N)-to-greater-O(N)-or-Explain-All)
+
+这道题和 [448.](448-Find-All-Numbers-Disappeared-in-an-Array/448-Find-All-Numbers-Disappeared-in-an-Array-Negative-Flag.java) Find All Numbers Disappeared in an Array 中做标记的方法很像，如果遇到了这个数就把这个数对应的下标的数（需要加一，因为范围是1开始到n）变成负数，所以如果我们再一次遇到负数就说明这个数之前出现过了，将其加入答案数组即可
+
+---
+
 ### 448. Find All Numbers Disappeared in an Array
 **<font color=#C8A1E6> HashMap </font>**
 
@@ -315,7 +327,7 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 [参考](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/discuss/92956/Java-accepted-simple-solution)
 _时间复杂度：O(n)； 空间复杂度：O(1)_
 
-遇到一个数就把数组对应这个数 - 1 的为下表的数变成负数来做标记，最后遍历，那些没有变成负数的下标 + 1 即为没有出现过的数。
+遇到一个数就把数组对应这个数 - 1 的为下标的数变成负数来做标记，最后遍历，那些没有变成负数的下标 + 1 即为没有出现过的数。
 
 ---
 
