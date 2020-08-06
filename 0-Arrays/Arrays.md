@@ -399,6 +399,16 @@ _时间复杂度：O(n)； 空间复杂度：O(1)_
 
 ---
 
+### 1535. Find the Winner of an Array Game
+
+#### [解法一](1535-Find-the-Winner-of-an-Array-Game.java)：寻找数字最多能比后面多少数字大
+
+一个数字要接连赢后面的数字就要比后面的数字都大。而且数组是从前往后比的，所以我们只需要不断的和后面比并且用 ```counter``` 记录这个数字比后面多少个连续数字大，达到题目要求就输出。否则最后就输出数组中最大的，因为这个数字会一直比其他数字大。
+
+
+
+---
+
 ## <font color=#7F71D9>其他：</font>
 ### 9. Palindrome Number 
 ### 344. Reverse String
