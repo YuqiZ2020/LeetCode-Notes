@@ -239,44 +239,6 @@ class Solution {
 #### 解法一：DFS
 用DFS遍历整个树，计算每一个从Root到Leaf的数字值并加起来返回。Base case是当一个结点是叶子结点的时候。之所以没有使用null作为Base Case是因为如果这样的话每个数值会被加两遍（叶子节点往左是null往右也是null）。在所有情况下，count = count * 10 + 当前点的值，然后当左子树或右子树存在的时候调用dfs进行递归。
 
-### [208](208-Implement-Trie-(Prefix-Tree).java). Implement Trie (Prefix Tree)
-
-[参考](https://leetcode.com/problems/implement-trie-prefix-tree/discuss/58832/AC-JAVA-solution-simple-using-single-array)
-
-##### TreeNode
-
-Trie是一种查找树，同前缀的几个字符串可以共用前缀分支。
-
-一个结点首先有当前结点的值，其次有一个TreeNode数组来保存所有的children，因为只有可能有26个英文字母，所以是长度为26的数组。最后还有isWord用来确定这个结点之前的结点是否组成一个单词。
-
-``` Java
-class TrieNode
-    {
-        public boolean isWord; 
-        public char val;
-        public TrieNode[] children = new TrieNode[26];
-        public TrieNode() {}
-        TrieNode(char c)
-        {
-            val = c;
-            isWord = false;
-        }
-    }
-```
-
-##### insert
-插入一个单词的时候，循环遍历整个单词，首先从根节点开始，在children数组里查找是否有这个词的第一个字母，如果有则沿着cursor下移，在这个字母的children里找下一个字母是否存在。如果不存在则创造一个新的结点记录在children数组中，并cursor下移，循环到下一个字母继续进行添加。
-
-最后要在cursor所在的结点（比单词后一位）将isWord标记为true。
-
-##### search
-循环遍历整个单词，从根节点开始，在children数组里查找是否有这个单词的第一个字母，如果有则cursor进入这个结点的children数组的对应字符，检查下一个字母。一旦有字母匹配失败则说明单词不存在。
-
-如果顺利完成匹配还需返回cursor的isWord域。
-
-##### startsWith
-和search一样，但是只要完成所有匹配即可，不需要isWord判断。
-
 ---
 
 ### 222. Count Complete Tree Nodes
@@ -718,3 +680,67 @@ Base case是如果当前结点是叶子结点，则到双亲结点的距离是1�
 [参考](https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/discuss/755784/Java-Detailed-Explanation-Post-Order-Cache-in-Array)
 
 因为题目给定了条件说Distance不超过10，所以可以建立一个大小为11的数组，包含距离0-10的点的个数，其他部分和解法一差不多，也是dfs求解，这样的话可以省掉循环的很多时间，如果两个距离配对相加符合条件则直接把两个距离对应的点的个数相乘（配对）即可。
+
+
+## <font color=#7F71D9>Trie: </font>
+
+### [208](208-Implement-Trie-(Prefix-Tree).java). Implement Trie (Prefix Tree)
+
+[参考](https://leetcode.com/problems/implement-trie-prefix-tree/discuss/58832/AC-JAVA-solution-simple-using-single-array)
+
+##### TreeNode
+
+Trie是一种查找树，同前缀的几个字符串可以共用前缀分支。
+
+一个结点首先有当前结点的值，其次有一个TreeNode数组来保存所有的children，因为只有可能有26个英文字母，所以是长度为26的数组。最后还有isWord用来确定这个结点之前的结点是否组成一个单词。
+
+``` Java
+class TrieNode
+    {
+        public boolean isWord; 
+        public char val;
+        public TrieNode[] children = new TrieNode[26];
+        public TrieNode() {}
+        TrieNode(char c)
+        {
+            val = c;
+            isWord = false;
+        }
+    }
+```
+
+##### insert
+插入一个单词的时候，循环遍历整个单词，首先从根节点开始，在children数组里查找是否有这个词的第一个字母，如果有则沿着cursor下移，在这个字母的children里找下一个字母是否存在。如果不存在则创造一个新的结点记录在children数组中，并cursor下移，循环到下一个字母继续进行添加。
+
+最后要在cursor所在的结点（比单词后一位）将isWord标记为true。
+
+##### search
+循环遍历整个单词，从根节点开始，在children数组里查找是否有这个单词的第一个字母，如果有则cursor进入这个结点的children数组的对应字符，检查下一个字母。一旦有字母匹配失败则说明单词不存在。
+
+如果顺利完成匹配还需返回cursor的isWord域。
+
+##### startsWith
+和search一样，但是只要完成所有匹配即可，不需要isWord判断。
+
+---
+
+### 211. Add and Search Word - Data structure design
+
+##### TreeNode, add
+
+这道题的设计和[208.](208-Implement-Trie-(Prefix-Tree).java) Implement Trie的设计是一样的。额外做了一个优化是不用保存每个结点的字符值了，因为每个结点在children 数组里的位置直接记录了这个结点的字符是什么
+
+##### Search
+
+总体来说也和普通Trie很像，但是加入了'.'的万能字符。这个时候就把26个字母中存在的都递归搜索一遍，如果有一个找到了就是找到，否则就是不存在。
+
+---
+
+### 212. Word Search II
+**<font color=#C8A1E6> DFS </font>**
+
+### [解法一](212-Word-Search-II.java)：构建Trie，DFS搜索
+
+题目给了单词字典和字母棋盘，所以先把单词字典构建成Trie再在字母棋盘里面用DFS进行查找。构建Trie的时候只需要26个字母的children数组，每个可以存下一个结点，然后结尾也不需要用bool来区分是否是单词，直接把单词存在最后就可以，这样省去了StringBuilder的时间。构建只需要```insert```功能，和原本的Trie基本一样。
+
+搜索的时候从棋盘的每个点都要开始搜索，每次到达一个点就把这个点转换成一个不存在的字符，这样避免重新走到这个结点，重复使用了字母。结束DFS的时候再把字符换回来即可。
