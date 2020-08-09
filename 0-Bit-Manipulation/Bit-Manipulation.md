@@ -96,6 +96,27 @@
 
 ---
 
+### 437. Path Sum III
+**<font color=#C8A1E6> Bit Manipulation; Math</font>**
+
+#### [解法一](342-Power-of-Four/342-Power-of-Four.java)：确定2的次方，根据1出现的位置判断是否为4的次方
+
+[参考](https://leetcode.com/problems/power-of-four/discuss/80457/Java-1-line-(cheating-for-the-purpose-of-not-using-loops))
+
+首先可以用 [231.](231-Power-of-Two/231-Power-of-Two-Binary.java) Power of Two 的方法来确定是否是2的次方，所以这个数肯定只有一个1其他都是0。接下来就是看1出现在哪里，1只能出现在4，16，64…… 等等位置，所以我们可以用1010……1010和这个数进行AND操作，看看是否还是原来的数字，如果是的话就是4的次方。
+
+#### [解法二](342-Power-of-Four/342-Power-of-Four.cpp)：三的倍数
+
+[参考](https://leetcode.com/problems/power-of-four/discuss/80460/1-line-C%2B%2B-solution-without-confusing-bit-manipulations)
+
+确定2的次方的方法是一样的，另外我们可以知道当且仅当这个数也是3的倍数的时候，他也是4的次方。
+
+$4^n = (2^n + 1)(2^n - 1)$
+
+三个连续整数中至少有一个是三的倍数 $2^n$不是三的倍数，所以以上两个数字中必有一个是三的倍数，所以整个数字一定是三的倍数。
+
+---
+
 ### 461. Hamming Distance
 **<font color=#C8A1E6>Bit Manipulation</font>**
 
