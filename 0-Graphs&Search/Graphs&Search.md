@@ -619,6 +619,14 @@ class Solution {
 
 ---
 
+### 994. Rotting Orange
+
+#### [解法一](994-Rotting-Oranges.java)：BFS
+
+一开始遍历一遍，一边把所有腐烂的橘子的位置放入队列，一边记录有多少新鲜橘子。然后处理的时候把队列里所有元素都出队列，因为他们是同一层的，会一起影响旁边的橘子腐烂。然后依次处理这些橘子，让旁边的被腐烂的橘子进入队列。记录天数和被腐烂的橘子的数量。最后队列为空的时候判断是否所有新鲜橘子都已经腐烂了。
+
+---
+
 ### 1466. Reorder Routes to Make All Paths Lead to the City Zero
 
 #### [解法一](1466-Reorder-Routes-to-Make-All-Paths-Lead-to-the-City-Zero.java)：DFS
