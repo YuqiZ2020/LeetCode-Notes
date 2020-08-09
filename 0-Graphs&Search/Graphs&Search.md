@@ -364,6 +364,19 @@ public:
 
 ---
 
+### 437 Path Sum III
+**<font color=#C8A1E6> Prefix Sum; Recursion </font>** 
+
+#### [解法一](437-Path-Sum-III.cpp)：记录Prefix Sum，递归遍历整棵树
+
+[参考](https://leetcode.com/problems/path-sum-iii/discuss/91878/17-ms-O(n)-java-Prefix-sum-method)
+
+要求是从某个结点到其一个子节点的和是题目要求的和，我们可以记录所有的从开始结点到当前结点的prefix sum，然后两个结点之间的和就是两个结点的prefix sum相减。
+
+每次到达一层的时候先更新目前的prefix sum，然后在map里面用差值找对应的满足条件的prefix sum，得到以当前结点为终点的满足条件的和有多少，记录在 ```ans``` 里。接下来把当前的prefix sum存进map里之后，对左右子树进行查找，将左右子树的返回值加到当前的 ```ans``` 里面，然后把map里面当前的prefix sum去除，返回。之所以要去除是因为不能影响到上面的结点（左右子树有两条路）的处理。
+
+---
+
 
 ### 700. Search in a Binary Search Tree
 **<font color=#C8A1E6> BST; Recursion </font>** 
