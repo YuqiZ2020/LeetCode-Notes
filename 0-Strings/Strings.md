@@ -74,6 +74,7 @@ public:
     }
 };
 ```
+
 #### [解法二](451-Sort-Characters-By-Frequency/451-Sort-Characters-By-Frequency-Less-Memory.cpp)：Bucket Sort + 循环确定频率
 可以不使用Map而直接使用二重循环来将频率降序排列的，从而节省Map占用的空间。
 
@@ -159,3 +160,17 @@ class Solution {
 #### [解法一](1461-Check-If-a-String-Contains-All-Binary-Codes-of-Size-K.cpp)：数学求和
 
 一个长度为k的字符串有k * (k + 1) / 2个子串，所以利用这个来求长度就可以了。具体实现modulo的时候要仔细。
+
+---
+
+### 1541. Minimum Insertions to Balance a Parentheses String
+
+#### [解法一](1541-Minimum-Insertions-to-Balance-a-Parentheses-String.java)：配对左括号和右括号，失配时补充
+
+定义一个变量来记录需要补充的括号数量，另一个记录剩余的空闲左括号数量。
+1. 遇到空闲的左括号则增加
+2. 遇到连续两个右括号则从左括号中减去一个配对
+3. 遇到单独一个右括号则从左括号中减去一个配对，并补充一个右括号
+4. 如果没有配对的左括号则需要额外配一个左括号
+
+最后如果还有剩余的左括号需要加两倍数量的右括号。
