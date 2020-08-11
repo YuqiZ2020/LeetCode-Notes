@@ -60,7 +60,7 @@ class Solution {
 ![图解](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200725203018.png)
 
 ---
-
+### 274. H-Index    
 ### 275. H-Index-II
 #### [解法一](275-H-Index-II.java)：二分查找
 _时间复杂度：O(log(n))； 空间复杂度：O(1)_
