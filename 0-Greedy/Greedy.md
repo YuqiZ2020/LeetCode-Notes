@@ -23,6 +23,17 @@
 
 ---
 
+### 435. Non-overlapping Intervals
+**<font color=#C8A1E6> Greedy, Sort </font>**
+
+#### [解法一](435-Non-overlapping-Intervals.class)：优先选取结束早的区间
+
+[参考](https://leetcode.com/problems/non-overlapping-intervals/discuss/276056/Python-Greedy-Interval-Scheduling)
+
+按照区间的结束早晚排序，结束早的可以让后面有更多的选择。保存上一个结束的位置，如果下一个比这个早开始则去掉这个区间，答案增加一，否则更新结束位置。
+
+---
+
 ### 621. Task Scheduler
 **<font color=#C8A1E6> Greedy </font>**
 
