@@ -1,3 +1,14 @@
+/**
+ * Problem 62: Unique Paths
+ * Prompt: A robot is located at the top-left corner of a 
+ * m x n grid (marked 'Start' in the diagram below).
+ * The robot can only move either down or right at any 
+ * point in time. The robot is trying to reach the 
+ * bottom-right corner of the grid (marked 'Finish' 
+ * in the diagram below).
+ * How many possible unique paths are there?
+ * Date: 06/29/2020
+ * */
 class Solution {
 public:
     int uniquePaths(int m, int n) {
@@ -9,7 +20,7 @@ public:
 };
 
 /**
- * Notes: Use combination with starts and bars technique. 
+ * Notes: Use combination with stars and bars technique. 
  * We would have to take m + n - 2 steps, and the problem
  * is that which n - 1 of them would be the ones that move
  * down. So the formula is C(m + n - 2, n - 1)
