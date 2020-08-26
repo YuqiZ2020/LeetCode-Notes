@@ -1,0 +1,50 @@
+/**
+ * Problem 983: Minimum Cost For Tickets
+ * Prompt: In a country popular for train travel, you have 
+ * planned some train travelling one year in advance.  The 
+ * days of the year that you will travel is given as an 
+ * array days.  Each day is an integer from 1 to 365.
+ * Train tickets are sold in 3 different ways:
+ * a 1-day pass is sold for costs[0] dollars;
+ * a 7-day pass is sold for costs[1] dollars;
+ * a 30-day pass is sold for costs[2] dollars.
+ * The passes allow that many days of consecutive travel.  
+ * For example, if we get a 7-day pass on day 2, then we 
+ * can travel for 7 days: day 2, 3, 4, 5, 6, 7, and 8.
+ * Return the minimum number of dollars you need to 
+ * travel every day in the given list of days.
+ * Date: 08/25/2020
+ */
+class Solution {
+    public int mincostTickets(int[] days, int[] costs) {
+        int len = days.length;
+        int maxDate = days[len - 1];
+        int[] dp = new int[maxDate + 1];
+        boolean[] travels = new boolean[maxDate + 1];
+        for (int i = 0; i < days.length; ++i)
+            travels[days[i]] = true;
+        for (int i = 1; i < maxDate + 1; ++i)
+        {
+            if (travels[i])
+            {
+                dp[i] = Math.min(dp[i - 1] + costs[0], dp[Math.max(0, i - 7)] + costs[1]);
+                dp[i] = Math.min(dp[i], dp[Math.max(0, i - 30)] + costs[2]);
+            }  
+            else
+                dp[i] = dp[i - 1];
+        }
+        return dp[maxDate];
+    }
+}
+
+/**
+ * Notes: We can calculate the cost for each date in our range
+ * of date and we would have three choices: 
+ * 1. Buy a one day ticket
+ * 2. Use a seven day ticket we bought seven days ago
+ * 3. Use a 30 day ticket we bought 30 days ago
+ * If there hasn't been that many days that have passed, we would
+ * treat it as if we bought the long term pass on the first day. 
+ * If we don't have to travel that day then we don't have to 
+ * do anything. 
+ */

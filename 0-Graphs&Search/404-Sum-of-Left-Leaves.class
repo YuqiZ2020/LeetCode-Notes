@@ -1,0 +1,37 @@
+/**
+ * Problem 404. Sum of Left Leaves
+ * Prompt: Find the sum of all left leaves in a given binary tree.
+ * Date: 08/24/2020
+ */
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null)
+            return 0;
+        int ans = 0;
+        if (root.left != null && root.left.left == null && root.left.right == null)
+            ans = root.left.val;
+        ans = ans + sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+        return ans;
+    }
+}
+
+/**
+ * Notes: First if the node is null then return 0. Then check if the left
+ * child of this node is a leaf node, if yes then add this value. 
+ * Then we recursively call the function for the left node and the right node.  
+ */
