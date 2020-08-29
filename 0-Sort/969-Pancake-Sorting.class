@@ -1,0 +1,42 @@
+class Solution {
+    public List<Integer> pancakeSort(int[] A) {
+        int len = A.length;
+        int[] pos = new int[len + 1];
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < len; ++i)
+            pos[A[i]] = i;
+        for (int i = len; i >= 2; --i)
+        {
+            if (pos[i] != i)
+            {
+                int t = pos[i] + 1;
+                flip(t, pos);
+                ans.add(t);
+                if (pos[i] != i)
+                {
+                    flip(i, pos);
+                    ans.add(i);
+                }
+            }
+        }
+        return ans;
+    }
+    
+    private void flip(int k, int[] pos)
+    {
+        for (int i = 0; i < pos.length; ++i)
+        {
+            if (pos[i] < k)
+                pos[i] = k - pos[i] - 1;
+        }
+    }
+}
+
+/**
+ * Notes: Store the position of all the elements in the array. 
+ * Then from biggest to smallest we determine if this element
+ * is in the correct place. If not we first flip to make
+ * this element to the front. Then flip by the optimal index
+ * to make this element into the correct place. We repeat this
+ * process for all the elements. 
+ */

@@ -55,6 +55,17 @@ class Solution {
 
 ---
 
+### 969. Pancake Sorting
+**<font color=#C8A1E6> Sort; HashMap </font>**
+
+#### [解法一](969-Pancake-Sorting.class)：记录每个数字的位置，从大到小一一翻转
+
+因为题目说了只包含 ```1 - A.length``` 的数字，所以可以另外建立一个数组用于存储每个数字的位置。然后从大到小一一查找每个数字的位置，如果位置不符合，则先把这个数字翻转到最前面，然后把这个数字翻转到需要的位置，从后往前依次处理。
+
+![图示](https://raw.githubusercontent.com/YuqiZ2020/PicBed/master/img/20200829170444.png)
+
+---
+
 ### 973. K Closest Points to Origin
 **<font color=#C8A1E6> Sort; Map </font>**
 
