@@ -67,9 +67,44 @@ dp[i][j] = temp;
 
 ---
 
+### 123. Best Time to Buy and Sell Stock
+
+#### [解法一](123-Best-Time-to-Buy-and-Sell-Stock-III.class)：动态规划
+
+状态定义：```dp[i][j]``` 即为进行i次操作以后最多可以赚多少钱
+
+初始化：进行0次操作无法赚钱，所以第一行初始化为0
+
+状态转移方程式：每次操作都可以选择一个买入时间和一个卖出时间，一次操作初始化的最低收入是 ```-prices[0]``` ，即在第0天卖出而不买入。对于任何操作都需要上一次操作已经结束，所以我们需要再来一重循环确定上一次操作要在当前买入点之前，这样此时最大的收益是多少。
+
+```Java
+for (int j = 1; j < len; ++j)
+{
+    int min = prices[0]; //Purchase at day 0
+    for (int k = 1; k < j; k++)
+        min = Math.min(min, prices[k] - dp[i - 1][k - 1]); 
+        //Purchase at day k, and need to sell out by day k - 1
+    dp[i][j] = Math.max(dp[i][j - 1], prices[j] - min);
+}
+```
+
+时间优化：可以把两个循环合并成同一个循环依次处理，因为我们最终都要找最小的min和最大的max，一起处理最后肯定会找到最大收益。
+
+```Java
+int min = prices[0]; //Purchase at day 0
+for (int j = 1; j < len; ++j)
+{
+    min = Math.min(min, prices[j] - dp[i - 1][j - 1]); 
+    //Purchase at day k, and need to sell out by day k - 1
+    dp[i][j] = Math.max(dp[i][j - 1], prices[j] - min);
+}
+```
+
+---
+
 ### 983. Minimum Cost For Tickets
 
-#### 解法一：动态规划
+#### [解法一](983-Minimum-Cost-For-Tickets.class)：动态规划
 
 状态定义：```dp[i]``` 即为第i天最少需要多少钱能完成从第0天到第i天的行程
 

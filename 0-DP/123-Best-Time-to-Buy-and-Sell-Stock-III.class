@@ -1,0 +1,41 @@
+/**
+ * Problem 123. Best Time to Buy and Sell Stock III
+ * Date: Say you have an array for which the ith element is the 
+ * price of a given stock on day i.
+ * Design an algorithm to find the maximum profit. You may complete 
+ * at most two transactions.
+ * Note: You may not engage in multiple transactions at the same 
+ * time (i.e., you must sell the stock before you buy again).
+ * Date: 08/17/2020
+ */
+class Solution {
+    public int maxProfit(int[] prices) {
+        int len = prices.length;
+        if (len < 2)
+            return 0;
+        int[][] dp = new int[3][len];
+        for (int i = 1; i < 3; ++i)
+        {
+            int min = prices[0]; //Purchase at day 0
+            for (int j = 1; j < len; ++j)
+            {
+                min = Math.min(min, prices[j] - dp[i - 1][j - 1]); 
+                //Purchase at day k, and need to sell out by day k - 1
+                dp[i][j] = Math.max(dp[i][j - 1], prices[j] - min);
+            }
+        }
+        return dp[2][len - 1];
+    }
+}
+
+/**
+ * Notes: DP based on when to perform transaction and how many transactions
+ * have been performed before. dp[i][j] is when this is the ith transaction
+ * and the stock is sold at day j. 
+ * For each transaction, loop through the array to set the selling date, and
+ * loop through the array before this selling date to find out previous 
+ * transaction's best sell out date. 
+ * Then this finds the best profit for this transaction. 
+ * This can be optimized to do calculation in one loop because we calcualte
+ * the min value that has to be subtracted out and calculate the max profit. 
+ */
