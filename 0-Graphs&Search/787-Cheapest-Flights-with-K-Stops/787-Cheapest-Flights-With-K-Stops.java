@@ -35,8 +35,8 @@ class Solution {
 }
 
 /**
- * Notes: Need to prune to aviod TLE. This time we need to revisit
+ * Notes: Need to prune to avoid TLE. This time we need to revisit
  * points because they might form a cheaper path given that the visitor
- * is from another node. However, pruning is essential to aviod unwanted 
+ * is from another node. However, pruning is essential to avoid unwanted 
  * visiting and to avoid TLE. 
  */

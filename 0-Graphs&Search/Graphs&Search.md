@@ -367,7 +367,7 @@ public:
 ### 404. Sum of Left Leaves
 **<font color=#C8A1E6> Recursion </font>** 
 
-#### [解法一]：检查左子树是否是叶子节点，递归遍历
+#### [解法一](404-Sum-of-Left-Leaves.class)：检查左子树是否是叶子节点，递归遍历
 
 如果是null则返回0，如果左子树是叶子结点则加上这个结点的值。接下来对左右结点递归调用函数即可。
 
