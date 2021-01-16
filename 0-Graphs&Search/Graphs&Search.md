@@ -604,6 +604,13 @@ class Solution {
 
 ---
 
+### 773. Sliding-Puzzle
+**<font color=#C8A1E6> BFS </font>** 
+
+#### [解法一](773-Sliding-Puzzle-Generalize.cpp)： BFS，用vector和String存储状态
+
+任何一个棋局的状态可以由2D vector或者string来表示，将数字以空格隔开放入string可以比较两个状态是否相同。我们把初始状态放入队列并把对应的string放入unordered_set，表示我们已经遇到了当前状态。每一次我们把队列中所有元素取出进行处理，尝试所有的移动方法，如果能遇到新的状态则把这个状态记录存入队列。这样一轮算一次活动。如果遇到最终需要的状态则直接返回活动次数。
+
 ### 797. All Paths From Source to Target
 **<font color=#C8A1E6> DFS </font>** 
 
