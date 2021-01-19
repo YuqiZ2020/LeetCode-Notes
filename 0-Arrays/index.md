@@ -128,11 +128,29 @@ class Solution {
 
 两个指针，一个读奇数一个读偶数。奇数指针尽可能地保持在偶数指针之前。奇数指针找到最近的奇数，偶数指针找到最近的在奇数指针之后的偶数。如果偶数指针已经超过了数组边界，则说明不需要再对数组做任何改动，返回当前数组即可。否则将奇数和偶数指针所指的两个数交换，并继续重复以上步骤。
 
-#### 解法二：Customized Sort
+#### [解法二](905-Sort-Array-By-Parity/905-Sort-Array-By-Parity-Customize-Sort.cpp)：Customized Sort
 
 [参考](https://leetcode.com/problems/sort-array-by-parity/solution/)
 
 建立Integer数组，使用Java自带Customized Sort完成排序，最后赋值回A，返回A。
+
+```Cpp
+class Solution {
+public:
+    static bool compareNums(int a, int b) 
+    { 
+        return (a % 2 < b % 2); 
+    }
+    vector<int> sortArrayByParity(vector<int>& A) {
+        vector<int> ans;
+        int len = A.size();
+        for (int i = 0; i < len; ++i)
+            ans.push_back(A[i]);
+        sort(ans.begin(), ans.end(), compareNums);
+        return ans;
+    }
+};
+```
 
 ---
 
