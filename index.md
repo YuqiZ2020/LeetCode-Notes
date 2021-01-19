@@ -1,14 +1,16 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
 # LeetCode-Notes
 
 Notes, Codes and Ideas on LeetCode Problems
 
-## Arrays 
+## [Arrays](https://github.com/YuqiZ2020/LeetCode-Notes/blob/master/0-Arrays/Arrays.md) 
 
 - [x] Two Pointers: 21, 26, 27, 88, 264, 283, 905, 941, 986, 1089, 1471
 
-- [x] 简单遍历: 1, 448, 957, 1299
+- [x] Easy Loops: 1, 448, 957, 1299
 
-- [x] 其他：9, 344, 387, 414, 485, 1295, 1346, 1464, 1470, 1480
+- [x] Other：9, 344, 387, 414, 485, 1295, 1346, 1464, 1470, 1480
 
 ## Bit Manipulation
 - [x] 136, 137, 231, 461
@@ -54,12 +56,12 @@ Notes, Codes and Ideas on LeetCode Problems
 
 ---
 
-# Something Fun!
+## Something Fun!
 
 
 ### 787. Cheapest Flights Within K Stops
 
-"787" --> Cheapest Fligths
+"787" --> Cheapest Flights
 
 
 ### A medal
