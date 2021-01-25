@@ -1,13 +1,18 @@
+* {
+	box-sizing: border-box;
+}
+
 img {
-	max-width: 90%;
+	max-width: 80%;
 	display: block;
 	margin:auto auto;
 }
+
 html {
 	margin: 0;
 	padding: 0;
 	
-	font: 1.1em "EB Garamond SemiBold", "Microsoft YaHei";
+	font: 110% "EB Garamond SemiBold", "Microsoft YaHei", "san-serif";
 }
 
 body {
@@ -15,29 +20,46 @@ body {
 	color: #333;
 	line-height: 1.6;
 	text-align: justify;
-	margin: 0; 
+	margin: 0;
 	padding: 0;
 }
 
 header {
 	font-size: 130%;
-	padding-top: 40px;
-	height: 160px;
-	background:linear-gradient(90deg, #ffc186 0%, #ffdcb8 20%, #ffeebb 60%, #fdffbc 90%);
+	padding-top: 2%;
+	padding-bottom: 2%;
+	background: linear-gradient(90deg, #ffc186 0%, #ffdcb8 20%, #ffeebb 60%, #fdffbc 90%);
 	text-align: center;
 	box-shadow: 0 15px 15px -15px #ebe0d6;
 }
 
-header p{
+header > p {
 	color: #e08f62;
 	opacity: 70%;
 }
 
-div {
-	font-size: 120%;
-	margin: 20px 100px 10px 100px;
+article {
+	margin: 4% 5.5% 5% 5.5%;
 }
 
+span.Problem-Tag {
+	color: #fdcb99;
+	margin-right: 10px;
+}
+
+div > h4, h5, p {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+div > pre {
+	position: relative;
+	left: 50px;
+}
+
+div > span:nth-child(2) {
+	margin-left: 50px;
+}
 
 /* Typography
 -------------------------------------------------------- */
@@ -54,49 +76,65 @@ h2 {
 	font-size: 160%;
 	font-style: bold;
 }
+
+h2.Sub-Category {
+	color: #965c3b;
+}
+
 h3 {
 	font-weight: normal;
 	font-style: italic;
-	font-size: 140%;
+	font-size: 145%;
+	margin-bottom: 5px;
 }
+
 h4 {
-	font-size: 130%;
+	font-size: 120%;
 	margin-top:0.2em;
 	margin-bottom:0.3em;
 }
+
 h5 {
 	margin-top:0em;
 	margin-bottom:0.2em;
 	font-size: 110%;
 	font-style: bold;
 }
+
 ul {
 	list-style: square;
 	padding-left:1.2em;
 	margin-bottom: 1em;
 }
+
 ol {
 	padding-left:1.2em;
 }
+
 blockquote {
-	margin-left: 1em;
-	padding-left: 1em;
-	border-left: 1px solid #ddd;
+	position: relative;
+	left: 1%;
+	padding-left: 1.5%;
+	padding-right: 1.5%;
+	border-left: 2px solid rgb(206, 206, 206);
+	background-color: rgb(245, 245, 245);
 }
 
 pre {
-	padding-top: 1em;
-	padding-bottom: 1em;
+	padding-top: 1%;
+	padding-bottom: 1%;
 	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
-	font-size: .9em;
 	background-color:  rgba(222,222,222,0.3);
 	border: none;
 	border-radius:10px;
+	max-width: 80%;
 }
 
 code {
 	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
 	background-color:  rgba(222,222,222,0.3);
+	padding: 0px 2px 0px 2px;
+	border-radius:3px;
 }
 a {
 	color: #e08f62;
