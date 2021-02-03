@@ -27,7 +27,7 @@ body {
 header {
 	font-size: 130%;
 	padding-top: 2%;
-	padding-bottom: 2%;
+	padding-bottom: 4%;
 	background: linear-gradient(90deg, #ffc186 0%, #ffdcb8 20%, #ffeebb 60%, #fdffbc 90%);
 	text-align: center;
 	box-shadow: 0 15px 15px -15px #ebe0d6;
