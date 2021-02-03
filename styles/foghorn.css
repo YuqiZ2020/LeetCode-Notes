@@ -47,14 +47,13 @@ span.Problem-Tag {
 	margin-right: 10px;
 }
 
-div > h4, h5, p {
+div > h4, h5, pre, p {
 	margin-left: 50px;
 	margin-right: 50px;
 }
 
-div > pre {
-	position: relative;
-	left: 50px;
+p {
+	white-space: pre-line;
 }
 
 div > span:nth-child(2) {
@@ -136,6 +135,7 @@ code {
 	padding: 0px 2px 0px 2px;
 	border-radius:3px;
 }
+
 a {
 	color: #e08f62;
 	text-decoration: none;
@@ -143,4 +143,21 @@ a {
 a:hover {
 	color: #ffc186;
 	text-decoration: underline;
+}
+
+a.button{
+       display:inline-block;
+       padding:0.35em 1.2em;
+       border:0.1em solid #FFFFFF;
+       margin:0 0.3em 0.3em 0;
+       border-radius:0.12em;
+       box-sizing: border-box;
+       text-decoration:none;
+       font-weight:300;
+       text-align:center;
+       transition: all 0.2s;
+}
+
+a.button:hover{
+       background-color:rgba(255, 255, 255, 0.2);;
 }
